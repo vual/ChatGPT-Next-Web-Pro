@@ -19,7 +19,7 @@
 ![image](./images/img4.png)
 ![image](./images/img5.png)
 
-## 联系
+## 获取方式
 ![image](./images/author.png)
 
 <div align="center">
