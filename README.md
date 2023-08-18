@@ -12,11 +12,16 @@
 - 3.接入主流知识库。
 - 4.待思考。。。
 
+## 示例图片
+![image](./images/img1.png)
+![image](./images/img2.png)
+![image](./images/img3.png)
+![image](./images/img4.png)
+
+## 联系
+![image](./images/author.png)
 
 <div align="center">
-
-
-
 
 <img src="./docs/images/icon.svg" alt="icon"/>
 
