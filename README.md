@@ -1,4 +1,5 @@
-<h3>基于[[ChatGPT Next Web]](https://github.com/Yidadaa/ChatGPT-Next-Web) 和 [[ChatGPT-Midjourney]](https://github.com/Licoy/ChatGPT-Midjourney) 改造 </h3>
+<h3>基于[ChatGPT Next Web](https://github.com/Yidadaa/ChatGPT-Next-Web) 和 [ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)</h3>
+
 ## 特性：
 - 1.完整的ChatGPT Next Web功能，定期同步更新。
 - 2.增加对接midjourney绘图功能，改功能基于ChatGPT-Midjourney，使用antd进行了完全的重构，界面更加合理，参数更加全面。
