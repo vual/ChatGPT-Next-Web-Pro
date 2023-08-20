@@ -2,7 +2,7 @@
 
 ## 特性：
 - 1.完整的ChatGPT Next Web功能，定期同步更新。
-- 2.增加对接midjourney绘图功能，改功能基于ChatGPT-Midjourney，使用antd进行了完全的重构，界面更加合理，参数更加全面。
+- 2.增加对接midjourney绘图功能，该功能基于ChatGPT-Midjourney，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.支持图片上传上传至阿里云oss或Minio（私有化oss），方便图片永久存储，且预览加载更快。
 - 4.增加了所有绘画记录页面。
 
