@@ -25,7 +25,7 @@
 Default: Empty,
 Example: http://127.0.0.1:8080
 midjourney proxy url, see: https://github.com/novicezk/midjourney-proxy
-### MIDJOURNEY_PROXY_URL=
+#### MIDJOURNEY_PROXY_URL=
 
 (optional)
 Default: Empty
