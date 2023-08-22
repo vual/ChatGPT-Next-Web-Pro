@@ -21,42 +21,44 @@
 ![image](./images/img5.png)
 
 ## 增加的参数
-# (optional)
-# Default: Empty,
-# Example: http://127.0.0.1:8080
-# midjourney proxy url, see: https://github.com/novicezk/midjourney-proxy
-MIDJOURNEY_PROXY_URL=
+(optional)
+Default: Empty,
+Example: http://127.0.0.1:8080
+midjourney proxy url, see: https://github.com/novicezk/midjourney-proxy
+### MIDJOURNEY_PROXY_URL=
 
-# (optional)
-# Default: Empty
-# see: https://github.com/novicezk/midjourney-proxy/wiki/%E9%85%8D%E7%BD%AE%E9%A1%B9 #mj.api-secret
-MIDJOURNEY_PROXY_API_SECRET=
+(optional)
+Default: Empty
+see: https://github.com/novicezk/midjourney-proxy/wiki/%E9%85%8D%E7%BD%AE%E9%A1%B9 #mj.api-secret
+#### MIDJOURNEY_PROXY_API_SECRET=
 
-# (optional)
-# Default:https://cdn.discordapp.com
-DISCORDCDN_PROXY_URL=
+(optional)
+Default:https://cdn.discordapp.com
+#### DISCORDCDN_PROXY_URL=
 
-# (optional)
-# OSS 相关配置，支持 阿里云oss 和 minio
-# type 可以取值 aliyun 或者 minio, 填了代表需要上传到oss，不需要上传到oss则不填
-OSS_TYPE=
-# 服务器地址，例如：aliyun：oss-accelerate.aliyuncs.com，minio：192.168.2.120(只需要ip)
-OSS_ENDPOINT=
-# type为minio，且endpoint为ip时，则需要有端口
-OSS_PORT=
-# tpe为minio，根据实际情况开启，如果endpoint是ip，那就false
-OSS_HTTPS=false
-# aliyun则填accessKeyId，minio则填username
-OSS_ACCESS_KEY=
-# aliyun则填accessKeySecret，minio则填password
-OSS_SECRET_KEY=
-# 桶名称
-OSS_BUCKET=
-# aliyun oss 绑定的域名, 2029.9.23后创建的bucket，需要绑定域名，不然无法预览
-OSS_DOMAIN=
+(optional)
+OSS 相关配置，支持 阿里云oss 和 minio
+type 可以取值 aliyun 或者 minio, 填了代表需要上传到oss，不需要上传到oss则不填
 
-# 授权码
-AUTHORIZE_CODE=
+#### OSS_TYPE=
+
+服务器地址，例如：aliyun：oss-accelerate.aliyuncs.com，minio：192.168.2.120(只需要ip)
+#### OSS_ENDPOINT=
+type为minio，且endpoint为ip时，则需要有端口
+#### OSS_PORT=
+type为minio，根据实际情况开启，如果endpoint是ip，那就false
+#### OSS_HTTPS=false
+aliyun则填accessKeyId，minio则填username
+#### OSS_ACCESS_KEY=
+aliyun则填accessKeySecret，minio则填password
+#### OSS_SECRET_KEY=
+桶名称
+#### OSS_BUCKET=
+aliyun oss 绑定的域名, 2029.9.23后创建的bucket，需要绑定域名，不然无法预览
+#### OSS_DOMAIN=
+
+授权码
+#### AUTHORIZE_CODE=
 
 ## 获取方式
 ![image](./images/author.png)
