@@ -54,7 +54,7 @@ aliyun则填accessKeySecret，minio则填password
 #### OSS_SECRET_KEY=
 桶名称
 #### OSS_BUCKET=
-aliyun oss 绑定的域名, 2029.9.23后创建的bucket，需要绑定域名，不然无法预览
+aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，不然无法预览
 #### OSS_DOMAIN=
 
 授权码
