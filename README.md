@@ -75,6 +75,7 @@ docker run -d -p 3000:3000 \
 ![image](./images/author.png)
 
 
+### 以下是chatgpt-next-web原readme
 <div align="center">
 
 <img src="./docs/images/icon.svg" alt="icon"/>
