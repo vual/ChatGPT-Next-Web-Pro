@@ -60,7 +60,18 @@ aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，�
 授权码
 #### AUTHORIZE_CODE=
 
-## 获取方式
+## 启动
+```shell
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.0.0
+
+docker run -d -p 3000:3000 \
+  -e OPENAI_API_KEY="sk-xxxx" \
+  -e CODE="your-password" \
+  -e AUTHORIZE_CODE="授权码" \
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.0.0
+```
+
+## 授权码获取方式
 ![image](./images/author.png)
 
 
@@ -333,43 +344,6 @@ bash <(curl -s https://raw.githubusercontent.com/Yidadaa/ChatGPT-Next-Web/main/s
 ## Translation
 
 If you want to add a new translation, read this [document](./docs/translation.md).
-
-## Donation
-
-[Buy Me a Coffee](https://www.buymeacoffee.com/yidadaa)
-
-## Special Thanks
-
-### Sponsor
-
-> 仅列出捐赠金额 >= 100RMB 的用户。
-
-[@mushan0x0](https://github.com/mushan0x0)
-[@ClarenceDan](https://github.com/ClarenceDan)
-[@zhangjia](https://github.com/zhangjia)
-[@hoochanlon](https://github.com/hoochanlon)
-[@relativequantum](https://github.com/relativequantum)
-[@desenmeng](https://github.com/desenmeng)
-[@webees](https://github.com/webees)
-[@chazzhou](https://github.com/chazzhou)
-[@hauy](https://github.com/hauy)
-[@Corwin006](https://github.com/Corwin006)
-[@yankunsong](https://github.com/yankunsong)
-[@ypwhs](https://github.com/ypwhs)
-[@fxxxchao](https://github.com/fxxxchao)
-[@hotic](https://github.com/hotic)
-[@WingCH](https://github.com/WingCH)
-[@jtung4](https://github.com/jtung4)
-[@micozhu](https://github.com/micozhu)
-[@jhansion](https://github.com/jhansion)
-[@Sha1rholder](https://github.com/Sha1rholder)
-[@AnsonHyq](https://github.com/AnsonHyq)
-[@synwith](https://github.com/synwith)
-[@piksonGit](https://github.com/piksonGit)
-
-### Contributor
-
-[Contributors](https://github.com/Yidadaa/ChatGPT-Next-Web/graphs/contributors)
 
 ## LICENSE
 
