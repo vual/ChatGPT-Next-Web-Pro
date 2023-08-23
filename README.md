@@ -60,6 +60,15 @@ aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，�
 授权码
 #### AUTHORIZE_CODE=
 
+## 需要准备什么
+如果你没有直通的网络环境，则需要准备以下事项
+- 1.一个域名，因为代理discord，openai，以及aliyun-oss，都需要域名
+- 2.部署discord代理，项目地址[discord-proxy](https://github.com/vual/discord-proxy)，fork到自己仓库，然后使用vercel进行部署，绑定自己的域名。
+- 3.部署[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)，详细请到对应项目查看。
+- 4.部署[openai代理](https://github.com/vual/vercel-proxy-openai)，fork到自己仓库，然后使用vercel进行部署，绑定自己的域名。
+- 5.获取阿里云oss的endpoint，key等，详细参考：https://zhuanlan.zhihu.com/p/445967642 ，bucket可以不用设为公共读，但上传的图片会自动设成公共读。2019.9.23后创建的bucket，需要绑定自己的域名，才能预览。
+- 6.部署minio私有化oss，bucket必须要设成public。
+
 ## 启动
 ```shell
 docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.0.0
