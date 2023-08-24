@@ -52,7 +52,7 @@ aliyun则填accessKeyId，minio则填username
 #### OSS_ACCESS_KEY=
 aliyun则填accessKeySecret，minio则填password
 #### OSS_SECRET_KEY=
-桶名称
+桶名称（minio的桶权限需要设成public，阿里云的可以不要，但上传的文件会设成public）
 #### OSS_BUCKET=
 aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，不然无法预览
 #### OSS_DOMAIN=
