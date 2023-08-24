@@ -42,7 +42,7 @@ type 可以取值 aliyun 或者 minio, 填了代表需要上传到oss，不需�
 
 #### OSS_TYPE=
 
-服务器地址，例如：aliyun：oss-accelerate.aliyuncs.com，minio：192.168.2.120(只需要ip)
+服务器地址，例如：aliyun：oss-accelerate.aliyuncs.com，minio：192.168.2.120(这边只填ip，不需要http前缀，端口填在下面那个参数)
 #### OSS_ENDPOINT=
 type为minio，且endpoint为ip时，则需要有端口
 #### OSS_PORT=
