@@ -5,6 +5,7 @@
 - 2.增加对接midjourney绘图功能，该功能基于ChatGPT-Midjourney，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.支持图片上传上传至阿里云oss或Minio（私有化oss），方便图片永久存储，且预览加载更快。
 - 4.增加了所有绘画记录页面。
+- 5.接入了stable diffussion，目前只实现了文生图，其它后续加上。
 
 ## 后续待实现
 - 1.接入stable diffussion绘画。
@@ -35,6 +36,15 @@ see: https://github.com/novicezk/midjourney-proxy/wiki/%E9%85%8D%E7%BD%AE%E9%A1%
 (optional)
 Default:https://cdn.discordapp.com
 #### DISCORDCDN_PROXY_URL=
+
+(optional)
+注：如果要使用stable-diffusion，必须要配置oss， 因为返回的图片是base64，浏览器存储会不够用，必须要上传到oss，然后存返回的url。
+stable-diffusion 的接口地址，例如：http://127.0.0.1:7860
+#### STABLE_DIFFUSION_BASE_URL=
+
+(optional)
+stable-diffusion 接口超时时间，单位分钟，默认10分钟
+#### STABLE_DIFFUSION_TIMEOUT=
 
 (optional)
 OSS 相关配置，支持 阿里云oss 和 minio
@@ -71,12 +81,12 @@ aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，�
 
 ## 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.0.0
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.1.0
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.0.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.1.0
 ```
 
 ## 授权码获取方式
