@@ -5,7 +5,7 @@
 - 2.增加对接midjourney绘图功能，该功能基于ChatGPT-Midjourney，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.支持图片上传上传至阿里云oss或Minio（私有化oss），方便图片永久存储，且预览加载更快。
 - 4.增加了所有绘画记录页面。
-- 5.接入了stable diffussion，目前只实现了文生图，其它后续加上。
+- 5.接入了stable diffussion，已实现文生图和图生图，其它后续加上。
 
 ## 后续待实现
 - 【doing】1.接入stable diffussion绘画。
@@ -81,12 +81,12 @@ aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，�
 
 ## 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.1.0
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.2.0
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.1.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:1.2.0
 ```
 
 ## 授权码获取方式
