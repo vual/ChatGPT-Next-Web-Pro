@@ -27,53 +27,22 @@
 ![image](./images/img7.png)
 
 ## 增加的参数
-(optional)
-Default: Empty,
-Example: http://127.0.0.1:8080
-midjourney proxy url, see: https://github.com/novicezk/midjourney-proxy
-#### MIDJOURNEY_PROXY_URL=
-
-(optional)
-Default: Empty
-see: https://github.com/novicezk/midjourney-proxy/wiki/%E9%85%8D%E7%BD%AE%E9%A1%B9 #mj.api-secret
-#### MIDJOURNEY_PROXY_API_SECRET=
-
-(optional)
-Default:https://cdn.discordapp.com
-#### DISCORDCDN_PROXY_URL=
-
-(optional)
-注：如果要使用stable-diffusion，必须要配置oss， 因为返回的图片是base64，浏览器存储会不够用，必须要上传到oss，然后存返回的url。
-stable-diffusion 的接口地址，需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，例如：http://127.0.0.1:7860
-#### STABLE_DIFFUSION_BASE_URL=
-
-(optional)
-stable-diffusion 接口超时时间，单位分钟，默认10分钟
-#### STABLE_DIFFUSION_TIMEOUT=
-
-(optional)
-OSS 相关配置，支持 阿里云oss 和 minio
-type 可以取值 aliyun 或者 minio, 填了代表需要上传到oss，不需要上传到oss则不填
-
-#### OSS_TYPE=
-
-服务器地址，例如：aliyun：oss-accelerate.aliyuncs.com，minio：192.168.2.120(这边只填ip，不需要http前缀，端口填在下面那个参数)
-#### OSS_ENDPOINT=
-type为minio，且endpoint为ip时，则需要有端口
-#### OSS_PORT=
-type为minio，根据实际情况开启，如果endpoint是ip，那就false
-#### OSS_HTTPS=false
-aliyun则填accessKeyId，minio则填username
-#### OSS_ACCESS_KEY=
-aliyun则填accessKeySecret，minio则填password
-#### OSS_SECRET_KEY=
-桶名称（minio的桶权限需要设成public，阿里云的可以不要，但上传的文件会设成public）
-#### OSS_BUCKET=
-aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，不然无法预览
-#### OSS_DOMAIN=
-
-授权码
-#### AUTHORIZE_CODE=
+| 参数名称                        | 必填 | 说明                                                                                                               |
+|-----------------------------|----|------------------------------------------------------------------------------------------------------------------|
+| MIDJOURNEY_PROXY_URL        | 否  | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                              |
+| MIDJOURNEY_PROXY_API_SECRET | 否  | Midjourney代理地址接口密钥，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                          |
+| DISCORDCDN_PROXY_URL        | 否  | Discordcdn图片地址代理，不填的话，如果访问不了discordcdn，就获取不到图片                                                                   |
+| STABLE_DIFFUSION_BASE_URL   | 否  | Stable-diffusion的接口地址，需要启动stable-diffusion-webui，如果要用该功能，必须要配置后面的OSS相关参数，因为stable-diffusion返回的是图片base64，需要有地方存图片 |
+| STABLE_DIFFUSION_TIMEOUT    | 否  | Stable-diffusion的接口超时时间，默认10分钟 |
+| OSS_TYPE                    | 否  | OSS 相关配置，支持 阿里云oss 和 minio type 可以取值 aliyun 或者 minio, 填了代表需要上传到oss，不需要上传到oss则不填 |
+| OSS_ENDPOINT                | 否  | 服务器地址，如：aliyun：oss-accelerate.aliyuncs.com，minio：192.168.2.120(这边只填ip，不需要http前缀，端口填在下面那个参数) |
+| OSS_PORT                    | 否  | type为minio，且endpoint为ip时，则需要有端口 |
+| OSS_HTTPS                   | 否  | type为minio，根据实际情况开启，如果endpoint是ip，那就false |
+| OSS_ACCESS_KEY              | 否  | aliyun则填accessKeyId，minio则填username |
+| OSS_SECRET_KEY              | 否  | aliyun则填accessKeySecret，minio则填password |
+| OSS_BUCKET                  | 否  | 桶名称（minio的桶权限需要设成public，阿里云的可以不要，但上传的文件会设成public） |
+| OSS_DOMAIN                  | 否  | aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，不然无法预览 |
+| AUTHORIZE_CODE              | 否  | 授权码，获取方式，请看后面 |
 
 ## 需要准备什么
 如果你没有直通的网络环境，则需要准备以下事项
