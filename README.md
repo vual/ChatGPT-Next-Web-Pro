@@ -32,7 +32,7 @@
 | MIDJOURNEY_PROXY_URL        | 否   | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                       |
 | MIDJOURNEY_PROXY_API_SECRET | 否   | Midjourney代理地址接口密钥，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                   |
 | DISCORDCDN_PROXY_URL        | 否   | Discordcdn图片地址代理，不填的话，如果访问不了discordcdn，就获取不到图片                                                                            |
-| STABLE_DIFFUSION_BASE_URL   | 否   | Stable-diffusion的接口地址，需要启动stable-diffusion-webui，[开启api的方式](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API)。如果要用该功能，必须要配置后面的OSS相关参数，因为stable-diffusion返回的是图片base64，需要有地方存图片 |
+| STABLE_DIFFUSION_BASE_URL   | 否   | Stable-diffusion的接口地址，需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，[开启api](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API)。如果要用该功能，必须要配置后面的OSS相关参数，因为stable-diffusion返回的是图片base64，需要有地方存图片 |
 | STABLE_DIFFUSION_TIMEOUT    | 否   | Stable-diffusion的接口超时时间，默认10分钟                                                                                            |
 | OSS_TYPE                    | 否   | OSS 相关配置，支持 阿里云oss 和 minio type 可以取值 aliyun 或者 minio, 填了代表需要上传到oss，不需要上传到oss则不填                                           |
 | OSS_ENDPOINT                | 否   | 服务器地址，如：aliyun：oss-accelerate.aliyuncs.com，minio：192.168.2.120(这边只填ip，不需要http前缀，端口填在下面那个参数)                               |
