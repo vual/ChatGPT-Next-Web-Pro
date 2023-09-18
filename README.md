@@ -44,7 +44,7 @@ Default:https://cdn.discordapp.com
 
 (optional)
 注：如果要使用stable-diffusion，必须要配置oss， 因为返回的图片是base64，浏览器存储会不够用，必须要上传到oss，然后存返回的url。
-stable-diffusion 的接口地址，例如：http://127.0.0.1:7860
+stable-diffusion 的接口地址，需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，例如：http://127.0.0.1:7860
 #### STABLE_DIFFUSION_BASE_URL=
 
 (optional)
@@ -83,6 +83,7 @@ aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，�
 - 4.部署[openai代理](https://github.com/vual/vercel-proxy-openai)，fork到自己仓库，然后使用vercel进行部署，绑定自己的域名。
 - 5.获取阿里云oss的endpoint，key等，详细参考：https://zhuanlan.zhihu.com/p/445967642 ，bucket可以不用设为公共读，但上传的图片会自动设成公共读。2019.9.23后创建的bucket，需要绑定自己的域名，才能预览。
 - 6.部署minio私有化oss，bucket必须要设成public。
+- 7.使用stable-diffusion功能需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，详细启动方式请到对应项目查看：https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API
 
 ## 启动
 ```shell
