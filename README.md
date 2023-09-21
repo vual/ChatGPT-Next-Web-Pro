@@ -1,11 +1,12 @@
 ## 基于[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web) 和 [ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)
 
 ## 特性：
-- 1.完整的ChatGPT Next Web功能，定期同步更新。
+- 1.完整的ChatGPT Next Web功能，并保持同步更新。
 - 2.增加对接midjourney绘图功能，该功能基于ChatGPT-Midjourney，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.支持图片上传上传至阿里云oss或Minio（私有化oss），方便图片永久存储，且预览加载更快。
 - 4.增加了所有绘画记录页面。
-- 5.接入了stable diffussion，文生图、图生图、后期处理、图片信息，近乎完整的参数设置，以及图片完成后的菜单按钮。
+- 5.接入了stable-diffussion，文生图、图生图、后期处理、图片信息，近乎完整的参数设置，以及图片完成后的菜单按钮。
+- 6.stable-diffusion加入了lora模型。
 
 ## 后续待实现
 - 【完成】1.接入stable diffussion绘画。
