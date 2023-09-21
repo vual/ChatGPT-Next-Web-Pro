@@ -26,6 +26,7 @@
 ![image](./images/img5.png)
 ![image](./images/img6.png)
 ![image](./images/img7.png)
+![image](./images/img8.png)
 
 ## 增加的参数
 | 参数名称                      | 必填 | 说明                                                                                                                                                                                                                                                    |
