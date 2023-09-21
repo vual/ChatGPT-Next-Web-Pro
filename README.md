@@ -1,5 +1,8 @@
 ## 基于[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)
 
+## 版本
+2.1.0 (2023.09.21)
+
 ## 特性：
 - 1.完整的ChatGPT Next Web功能，并保持同步更新。
 - 2.增加对接midjourney绘图功能，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
