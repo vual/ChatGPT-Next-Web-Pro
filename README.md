@@ -58,12 +58,12 @@
 
 ## 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:2.0.0
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:2.1.0
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:2.0.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:2.1.0
 ```
 
 ## 授权码获取方式
