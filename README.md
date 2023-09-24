@@ -1,9 +1,9 @@
-## 基于[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)
+### 基于[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)
 
-## 版本
+### 版本
 2.1.0 (2023.09.21)
 
-## 特性：
+### 特性：
 - 1.完整的ChatGPT Next Web功能，并保持同步更新。
 - 2.增加对接midjourney绘图功能，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.支持图片上传上传至阿里云oss或Minio（私有化oss），方便图片永久存储，且预览加载更快。
@@ -11,7 +11,7 @@
 - 5.接入了stable-diffussion，文生图、图生图、后期处理、图片信息，近乎完整的参数设置，以及图片完成后的菜单按钮。
 - 6.stable-diffusion加入了lora模型。
 
-## 后续待实现
+### 后续待实现
 - 【完成】1.接入stable diffussion绘画。
 - 【doing】2.接入后端管理，增加账号登录功能。
 - 【     】3.权限管理，角色分配，绘画权限，知识库权限，聊天记录保存、查阅等。
@@ -21,7 +21,7 @@
 - 【     】7.function call。
 - 【     】8.待思考。。。
 
-## 示例图片
+### 示例图片
 ![image](./images/img1.png)
 ![image](./images/img2.png)
 ![image](./images/img3.png)
@@ -31,7 +31,7 @@
 ![image](./images/img7.png)
 ![image](./images/img8.png)
 
-## 增加的参数
+### 增加的参数
 | 参数名称                      | 必填 | 说明                                                                                                                                                                                                                                                    |
 |-----------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MIDJOURNEY_PROXY_URL        | 否  | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                                   |
@@ -49,7 +49,7 @@
 | OSS_DOMAIN                  | 否  | aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，不然无法预览                                                                                                                                                                                                   |
 | AUTHORIZE_CODE              | 是  | 授权码，获取方式，请看后面                                                                                                                                                                                                                                         |
 
-## 需要准备什么
+### 需要准备什么
 如果你没有直通的网络环境，则需要准备以下事项
 - 1.一个域名，因为代理discord，openai，以及aliyun-oss，都需要域名
 - 2.部署discord代理，项目地址[discord-proxy](https://github.com/vual/discord-proxy)，fork到自己仓库，然后使用vercel进行部署，绑定自己的域名。
@@ -59,7 +59,7 @@
 - 6.部署minio私有化oss，bucket必须要设成public。
 - 7.使用stable-diffusion功能需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，详细启动方式请到对应项目查看：https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API
 
-## 启动
+### 启动
 ```shell
 docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:2.1.0
 
@@ -69,7 +69,7 @@ docker run -d -p 3000:3000 \
   registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:2.1.0
 ```
 
-## 授权码获取方式
+### 授权码获取方式
 ![image](./images/author.png)
 
 
