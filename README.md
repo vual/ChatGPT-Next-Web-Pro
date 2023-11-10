@@ -68,6 +68,7 @@ docker run -d -p 3000:3000 \
 ```
 
 ### 授权码获取方式
+微信：822784588
 ![image](./images/author.png)
 
 
