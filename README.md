@@ -17,7 +17,8 @@
 - 【     】5.接入主流知识库，如fastGPT、Dify等。
 - 【     】6.联网搜索。
 - 【     】7.function call。
-- 【     】8.待思考。。。
+- 【     】8.接入DALL-E。
+- 【     】9.待思考。。。
 
 ### 示例图片
 ![image](./images/img1.png)
