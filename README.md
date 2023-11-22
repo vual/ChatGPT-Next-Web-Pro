@@ -72,7 +72,7 @@ docker run -d -p 3000:3000 \
   registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.0.0
 ```
 
-### 授权码价格
+### 授权码价格（永久授权，可以先试用）
 #### 无后端版本（后续更新也不会接入后端相关功能）：
 - 绑定1个域名或IP，限时特惠：￥99
 - 绑定2个域名或IP，限时特惠：￥159
