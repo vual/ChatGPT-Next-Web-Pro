@@ -1,5 +1,5 @@
 ### 版本
-2.1.0 (2023.09.21)
+3.0.0 (2023.11.22) 无后端
 
 ### 特性：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。
@@ -64,8 +64,14 @@ docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:2.1.
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:2.1.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.0.0
 ```
+
+### 授权码价格
+####无后端版本（后续更新也不会接入后端相关功能）：
+绑定1个域名或IP，限时特惠：￥99
+绑定2个域名或IP，限时特惠：￥159
+绑定3个域名或IP，限时特惠：￥199
 
 ### 授权码获取方式
 微信：822784588
