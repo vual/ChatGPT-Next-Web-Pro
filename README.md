@@ -1,9 +1,9 @@
 ### 版本
 #### 无后端：
-- 版本号：3.1.0，更新日期：2023.11.24
+- 版本号：3.2.0，更新日期：2023.11.30
 
 ### 特性（无后端版本）：
-- 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.11.24
+- 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.11.30
 - 2.增加对接midjourney绘图功能，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.支持图片上传上传至阿里云oss或Minio（私有化oss），方便图片永久存储，且预览加载更快。
 - 4.增加了所有绘画记录页面。
@@ -11,6 +11,7 @@
 - 6.stable-diffusion加入了lora模型。
 - 7.增加翻译功能，自动识别输入的内容是中文还是英文（如果大部分是中文，则翻译成英文，反之亦然）。
 - 8.设置里增加自定义mj代理密钥，且兼容oneapi的mj代理，并增加环境变量 HIDE_MIDJOURNEY_SETTING，如果设成1，则隐藏mj设置。
+- 9.增加支持gpt4-vision-preview识图功能，可以上传多张图片。建议配合OSS使用，且保证上传的图片能公网访问，如果不配置oss，或无法公网访问，则只会把图片base64发送出去，本地不保存图片信息。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -68,12 +69,12 @@
 
 ### 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.1.0
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.2.0
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.1.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.2.0
 ```
 
 ### 授权码价格
