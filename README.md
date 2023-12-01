@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.2.0，更新日期：2023.11.30
+- 版本号：3.2.1，更新日期：2023.12.01
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.11.30
@@ -11,7 +11,7 @@
 - 6.stable-diffusion加入了lora模型。
 - 7.增加翻译功能，自动识别输入的内容是中文还是英文（如果大部分是中文，则翻译成英文，反之亦然）。
 - 8.设置里增加自定义mj代理密钥，且兼容oneapi的mj代理，并增加环境变量 HIDE_MIDJOURNEY_SETTING，如果设成1，则隐藏mj设置。
-- 9.增加支持gpt4-vision-preview识图功能，可以上传多张图片。建议配合OSS使用，且保证上传的图片能公网访问，如果不配置oss，或无法公网访问，则只会把图片base64发送出去，本地不保存图片信息。
+- 9.增加支持gpt4-vision-preview识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -63,18 +63,18 @@
 - 2.部署discord代理，项目地址[discord-proxy](https://github.com/vual/discord-proxy)，fork到自己仓库，然后使用vercel进行部署，绑定自己的域名。
 - 3.部署[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)，详细请到对应项目查看。
 - 4.部署[openai代理](https://github.com/vual/vercel-proxy-openai)，fork到自己仓库，然后使用vercel进行部署，绑定自己的域名。
-- 5.获取阿里云oss的endpoint，key等，详细参考：https://zhuanlan.zhihu.com/p/445967642 ，bucket可以不用设为公共读，但上传的图片会自动设成公共读。2019.9.23后创建的bucket，需要绑定自己的域名，才能预览。
+- 5.获取阿里云oss的endpoint，key等，[详细参考](https://zhuanlan.zhihu.com/p/445967642) ，bucket可以不用设为公共读，但上传的图片会自动设成公共读。2019.9.23后创建的bucket，需要绑定自己的域名，才能预览。[跨域问题](https://help.aliyun.com/zh/oss/the-no-access-control-allow-origin-error-message-is-still-reported-when-you-call-oss-after-setting-cross-domain-rules)
 - 6.部署minio私有化oss，bucket必须要设成public。
 - 7.使用stable-diffusion功能需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，详细启动方式请到对应项目查看：https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API
 
 ### 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.2.0
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.2.1
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.2.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.2.1
 ```
 
 ### 授权码价格
