@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.3.0，更新日期：2023.12.04
+- 版本号：3.3.1，更新日期：2023.12.05
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.11.30
@@ -72,12 +72,12 @@
 
 ### 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.3.0
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.3.1
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.3.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.3.1
 ```
 
 ### 授权码价格
