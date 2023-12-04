@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.2.3，更新日期：2023.12.02
+- 版本号：3.3.0，更新日期：2023.12.04
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.11.30
@@ -13,6 +13,7 @@
 - 8.设置里增加自定义mj代理密钥，且兼容oneapi的mj代理，并增加环境变量 HIDE_MIDJOURNEY_SETTING，如果设成1，则隐藏mj设置。
 - 9.设置里增加展示聊天记录占用存储情况，浏览器localstorage只有5m，存储快满时，建议导出数据备份，然后删除浏览器存的对话。
 - 10.增加支持gpt4-vision-preview识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地聊天记录不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去。
+- 11.增加支持dall-e-3功能，兼容dall-e-2。该功能强烈建议配置oss，详细配置请看参数说明及准备说明。因为openai返回的图片url有效期很短，过期了无法访问，如果返回base64，浏览器存不下。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -26,7 +27,7 @@
 - 【     】5.接入主流知识库，如fastGPT、Dify等。
 - 【     】6.联网搜索。
 - 【     】7.function call。
-- 【     】8.接入DALL-E。
+- 【完成】8.接入DALL-E。
 - 【     】9.待思考。。。
 
 ### 示例图片
@@ -38,6 +39,7 @@
 ![image](./images/img6.png)
 ![image](./images/img7.png)
 ![image](./images/img8.png)
+![image](./images/img9.png)
 
 ### 增加的参数
 | 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
@@ -70,12 +72,12 @@
 
 ### 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.2.3
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.3.0
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.2.3
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.3.0
 ```
 
 ### 授权码价格
