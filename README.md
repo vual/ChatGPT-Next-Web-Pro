@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.3.1，更新日期：2023.12.05
+- 版本号：3.5.0，更新日期：2023.12.06
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.11.30
@@ -14,6 +14,9 @@
 - 9.设置里增加展示聊天记录占用存储情况，浏览器localstorage只有5m，存储快满时，建议导出数据备份，然后删除浏览器存的对话。
 - 10.增加支持gpt4-vision-preview识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地聊天记录不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去。
 - 11.增加支持dall-e-3功能，兼容dall-e-2。该功能强烈建议配置oss，详细配置请看参数说明及准备说明。因为openai返回的图片url有效期很短，过期了无法访问，如果返回base64，浏览器存不下。
+- 12.增加支持whisper-1音视频转文字功能。该功能也强烈建议配置oss，不然聊天记录不保存文件，影响点击重试。
+- 13.增加支持tts文字转语音功能，该功能必须配置oss，不然返回的文件没地方存。
+- 14.增加设置里可以自定义stable-diffusion接口地址，设置了则用户端请求的时候会使用用户端填的sd地址，如果不想用户设置自定义sd接口地址，则增加环境变量 HIDE_SD_SETTING=1
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -40,6 +43,8 @@
 ![image](./images/img7.png)
 ![image](./images/img8.png)
 ![image](./images/img9.png)
+![image](./images/img10.png)
+![image](./images/img11.png)
 
 ### 增加的参数
 | 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
@@ -50,6 +55,7 @@
 | DISCORDCDN_PROXY_URL        | 否  | Discordcdn图片地址代理，不填的话，如果访问不了discordcdn，就获取不到图片                                                                                                                                                                                                        |
 | STABLE_DIFFUSION_BASE_URL   | 否  | Stable-diffusion的接口地址，需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，[开启api](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API)。如果要用该功能，必须要配置后面的OSS相关参数，因为stable-diffusion返回的是图片base64，需要有地方存图片 |
 | STABLE_DIFFUSION_TIMEOUT    | 否  | Stable-diffusion的接口超时时间，默认10分钟                                                                                                                                                                                                                        |
+| HIDE_SD_SETTING             | 否  | 是否隐藏Stable-diffusion自定义接口设置，默认不隐藏，如需隐藏，则设成 1。                                                                                                                                                                                                         |
 | OSS_TYPE                    | 否  | OSS 类型，取值( aliyun 或 minio )。填了代表需要上传到oss，且下面的相关参数都得填，具体看下面的参数说明                                                                                                                                                                                       |
 | OSS_ENDPOINT                | 否  | 服务器地址，如：aliyun：oss-accelerate.aliyuncs.com，minio：192.168.2.120(这边只填ip，不需要http前缀，端口填在下面那个参数)                                                                                                                                                           |
 | OSS_PORT                    | 否  | type为minio，且endpoint为ip时，则需要有端口                                                                                                                                                                                                                       |
@@ -72,19 +78,19 @@
 
 ### 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.3.1
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.0
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.3.1
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.0
 ```
 
 ### 授权码价格
 #### 无后端版本（后续更新也不会接入后端相关功能）：
-- 绑定1个域名或IP，限时特惠：￥99
-- 绑定2个域名或IP，限时特惠：￥159
-- 绑定3个域名或IP，限时特惠：￥199
+- 绑定1个域名或IP，限时特惠：￥129
+- 绑定2个域名或IP，限时特惠：￥199
+- 绑定3个域名或IP，限时特惠：￥259
 
 （付费即永久授权，可以先试用，试用不收费）
 
