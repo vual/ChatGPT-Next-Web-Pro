@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.5.3，更新日期：2023.12.08
+- 版本号：3.5.4，更新日期：2023.12.08
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.12.07
@@ -15,7 +15,7 @@
 - 10.增加支持gpt4-vision-preview识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地聊天记录不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去。
 - 11.增加支持dall-e-3功能，兼容dall-e-2。该功能强烈建议配置oss，详细配置请看参数说明及准备说明。因为openai返回的图片url有效期很短，过期了无法访问，如果返回base64，浏览器存不下。
 - 12.增加支持whisper-1音视频转文字功能。该功能也强烈建议配置oss，不然聊天记录不保存文件，影响点击重试。
-- 13.增加支持tts文字转语音功能，该功能必须配置oss，不然返回的文件没地方存。
+- 13.增加支持tts文字转语音功能，语音可以直接播放。该功能必须配置oss，不然返回的文件没地方存。
 - 14.增加设置里可以自定义stable-diffusion接口地址，设置了则用户端请求的时候会使用用户端填的sd地址，如果不想用户设置自定义sd接口地址，则增加环境变量 HIDE_SD_SETTING=1
 
 ### 特性（有后端版本）：
@@ -78,12 +78,12 @@
 
 ### 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.3
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.4
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.3
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.4
 ```
 
 ### 授权码价格
