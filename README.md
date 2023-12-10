@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.5.4，更新日期：2023.12.08
+- 版本号：3.5.5，更新日期：2023.12.10
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.12.07
@@ -12,10 +12,10 @@
 - 7.增加翻译功能，自动识别输入的内容是中文还是英文（如果大部分是中文，则翻译成英文，反之亦然）。
 - 8.设置里增加自定义mj代理密钥，且兼容oneapi的mj代理，并增加环境变量 HIDE_MIDJOURNEY_SETTING，如果设成1，则隐藏mj设置。
 - 9.设置里增加展示聊天记录占用存储情况，浏览器localstorage只有5m，存储快满时，建议导出数据备份，然后删除浏览器存的对话。
-- 10.增加支持gpt4-vision-preview识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地聊天记录不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去。
+- 10.增加支持gpt4-vision-preview识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地聊天记录不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去，建议开通美国阿里云oss。
 - 11.增加支持dall-e-3功能，兼容dall-e-2。该功能强烈建议配置oss，详细配置请看参数说明及准备说明。因为openai返回的图片url有效期很短，过期了无法访问，如果返回base64，浏览器存不下。
 - 12.增加支持whisper-1音视频转文字功能。该功能也强烈建议配置oss，不然聊天记录不保存文件，影响点击重试。
-- 13.增加支持tts文字转语音功能，语音可以直接播放。该功能必须配置oss，不然返回的文件没地方存。
+- 13.增加支持tts文字转语音功能，语音可以直接播放。该功能必须配置oss，不然返回的文件没地方存，如果你的应用地址是https，则oss也必须是https，不然会出现无法播放的问题。
 - 14.增加设置里可以自定义stable-diffusion接口地址，设置了则用户端请求的时候会使用用户端填的sd地址，如果不想用户设置自定义sd接口地址，则增加环境变量 HIDE_SD_SETTING=1
 
 ### 特性（有后端版本）：
@@ -46,7 +46,7 @@
 ![image](./images/img10.png)
 ![image](./images/img11.png)
 
-### 增加的参数
+### 增加的参数（兼容原版[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)chatgpt-next-web所有参数，这边只列了新增参数）
 | 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
 |-----------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MIDJOURNEY_PROXY_URL        | 否  | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                                   |
@@ -62,9 +62,10 @@
 | OSS_HTTPS                   | 否  | type为minio，根据实际情况开启，如果endpoint是ip，那就false                                                                                                                                                                                                             |
 | OSS_ACCESS_KEY              | 否  | aliyun则填accessKeyId，minio则填username                                                                                                                                                                                                                   |
 | OSS_SECRET_KEY              | 否  | aliyun则填accessKeySecret，minio则填password                                                                                                                                                                                                               |
-| OSS_BUCKET                  | 否  | 桶名称（minio的桶权限需要设成public，阿里云的可以不要，但上传的文件会设成public）                                                                                                                                                                                                     |
+| OSS_BUCKET                  | 否  | 桶名称（minio的桶权限需要设成public，阿里云的桶可以不用设成public，但上传的文件会设成public）                                                                                                                                                                                            |
 | OSS_DOMAIN                  | 否  | aliyun oss 绑定的域名, 2019.9.23后创建的bucket，需要绑定域名，不然无法预览                                                                                                                                                                                                   |
 | AUTHORIZE_CODE              | 是  | 授权码，获取方式，请看后面                                                                                                                                                                                                                                         |
+| APP_TITLE                   | 否  | 自定义网站标题，需要获得永久授权后才会生效                                                                                                                                                                                                                                 |
 
 ### 需要准备什么
 如果你没有直通的网络环境，则需要准备以下事项
@@ -73,17 +74,17 @@
 - 3.部署[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)，详细请到对应项目查看。
 - 4.部署[openai代理](https://github.com/vual/vercel-proxy-openai)，fork到自己仓库，然后使用vercel进行部署，绑定自己的域名。
 - 5.获取阿里云oss的endpoint，key等，[详细参考](https://zhuanlan.zhihu.com/p/445967642) ，bucket可以不用设为公共读，但上传的图片会自动设成公共读。2019.9.23后创建的bucket，需要绑定自己的域名，才能预览。[跨域问题](https://help.aliyun.com/zh/oss/the-no-access-control-allow-origin-error-message-is-still-reported-when-you-call-oss-after-setting-cross-domain-rules)
-- 6.部署minio私有化oss，bucket必须要设成public。
+- 6.部署minio私有化oss，bucket必须要设成public，[docker启动参考官方文档](https://www.minio.org.cn/docs/minio/container/operations/install-deploy-manage/deploy-minio-single-node-single-drive.html)。
 - 7.使用stable-diffusion功能需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，详细启动方式请到对应项目查看：https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API
 
 ### 启动
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.4
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.5
 
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.4
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.5
 ```
 
 ### 授权码价格
