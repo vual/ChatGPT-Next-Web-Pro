@@ -81,14 +81,19 @@
 - 7.使用stable-diffusion功能需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，详细启动方式请到对应项目查看：https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API
 
 ### 启动
+##### 1.拉取镜像
 ```shell
 docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.7
-
+```
+##### 2.启动应用
+```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
+  -e BASE_URL="https://xxxx" \
   -e AUTHORIZE_CODE="授权码" \
   registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.7
 ```
+其它参数也是通过增加 -e 然后跟上参数名称和参数值， \ 是换行拼接。
 
 ### 授权码价格
 #### 无后端版本（后续更新也不会接入后端相关功能）：
