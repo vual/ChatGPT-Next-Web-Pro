@@ -50,7 +50,7 @@
 
 ### 增加的参数
 #### 兼容原版[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)所有参数，这边只列了新增参数
-| 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
+| 参数名称                      | 必填 | 说明                                                                                                                                                                                                                                                    |
 |-----------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MIDJOURNEY_PROXY_URL        | 否  | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                                   |
 | MIDJOURNEY_PROXY_API_SECRET | 否  | Midjourney代理地址接口密钥，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                               |
