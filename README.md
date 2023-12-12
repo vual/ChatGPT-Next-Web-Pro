@@ -1,9 +1,9 @@
 ### 版本
 #### 无后端：
-- 版本号：3.5.7，更新日期：2023.12.11
+- 版本号：3.5.8，更新日期：2023.12.12
 
 ### 特性（无后端版本）：
-- 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.12.07
+- 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.12.12
 - 2.增加对接midjourney绘图功能，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.支持图片上传上传至阿里云oss或Minio（私有化oss），方便图片永久存储，且预览加载更快。
 - 4.增加了所有绘画记录页面。
@@ -19,6 +19,7 @@
 - 14.增加设置里可以自定义stable-diffusion接口地址，设置了则用户端请求的时候会使用用户端填的sd地址，如果不想用户设置自定义sd接口地址，则增加环境变量 HIDE_SD_SETTING=1
 - 15.增加自定义网站标题功能，通过启动参数APP_TITLE=指定，需要获得永久授权后生效。
 - 16.增加支持gpt-4-all逆向模型（需要你的接口支持），支持上传所有类型文件进行分析，必须配置oss，不然没地方保存文件，至于使用国内oss还是国外oss，具体看你模型后端能力能访问到哪个oss。
+- 17.增加自定义网站副标题，通过启动参数APP_SUB_TITLE=指定，须获得永久授权后生效。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -83,7 +84,7 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.7
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.8
 ```
 ##### 2.启动应用
 ```shell
@@ -91,7 +92,7 @@ docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxx" \
   -e BASE_URL="https://xxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.7
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.8
 ```
 其它参数也是通过增加 -e 然后跟上参数名称和参数值， \ 是换行拼接。
 
