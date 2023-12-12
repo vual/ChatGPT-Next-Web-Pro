@@ -110,4 +110,19 @@ docker run -d -p 3000:3000 \
 
 ![image](./images/author.png)
 
+### 常见问题
+1.通过ngnix转发，页面停留在【需要密码】的页面进不去，
+![img.png](img.png)
+
+需要在ngnix配置里增加：
+```shell
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto http;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection "upgrade";
+proxy_set_header Host $http_host;
+```
+
+
 
