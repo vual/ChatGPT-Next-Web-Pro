@@ -124,5 +124,7 @@ proxy_set_header Connection "upgrade";
 proxy_set_header Host $http_host;
 ```
 
+2.配置了minio，出现图片无法预览。这个是因为网站是https，所以访问minio也要https，建议用ngnix转发域名方式，[可以参考](https://blog.csdn.net/weixin_40461281/article/details/124260888)
+
 
 
