@@ -1,25 +1,27 @@
 ### 版本
 #### 无后端：
-- 版本号：3.5.8，更新日期：2023.12.12
+- 版本号：3.5.9，更新日期：2023.12.13
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.12.12
-- 2.增加对接midjourney绘图功能，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
-- 3.支持图片上传上传至阿里云oss或Minio（私有化oss），方便图片永久存储，且预览加载更快。
+- 2.**增加对接midjourney绘图功能**，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
+- 3.**支持图片上传至阿里云oss或Minio（私有化oss）**，方便图片永久存储，且预览加载更快。
 - 4.增加了所有绘画记录页面。
-- 5.接入了stable-diffussion，文生图、图生图、后期处理、图片信息，近乎完整的参数设置，以及图片完成后的菜单按钮。
+- 5.**接入了stable-diffussion**，文生图、图生图、后期处理、图片信息，近乎完整的参数设置，以及图片完成后的菜单按钮。
 - 6.stable-diffusion加入了lora模型。
-- 7.增加翻译功能，自动识别输入的内容是中文还是英文（如果大部分是中文，则翻译成英文，反之亦然）。
-- 8.设置里增加自定义mj代理密钥，且兼容oneapi的mj代理，并增加环境变量 HIDE_MIDJOURNEY_SETTING，如果设成1，则隐藏mj设置。
+- 7.**增加翻译功能**，自动识别输入的内容是中文还是英文（如果大部分是中文，则翻译成英文，反之亦然）。
+- 8.设置里增加自定义mj代理密钥，且**兼容oneapi的mj代理**，并增加环境变量 HIDE_MIDJOURNEY_SETTING，如果设成1，则隐藏mj设置。
 - 9.设置里增加展示聊天记录占用存储情况，浏览器localstorage只有5m，存储快满时，建议导出数据备份，然后删除浏览器存的对话。
-- 10.增加支持gpt4-vision-preview识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地聊天记录不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去，建议开通美国阿里云oss。
-- 11.增加支持dall-e-3功能，兼容dall-e-2。该功能强烈建议配置oss，详细配置请看参数说明及准备说明。因为openai返回的图片url有效期很短，过期了无法访问，如果返回base64，浏览器存不下。
-- 12.增加支持whisper-1音视频转文字功能。该功能也强烈建议配置oss，不然聊天记录不保存文件，影响点击重试。
-- 13.增加支持tts文字转语音功能，语音可以直接播放。该功能必须配置oss，不然返回的文件没地方存，如果你的应用地址是https，则oss也必须是https，不然会出现无法播放的问题。
+- 10.增加支持**gpt4-vision-preview**识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地聊天记录不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去，建议开通美国阿里云oss。
+- 11.增加支持**dall-e-3**功能，兼容dall-e-2。该功能强烈建议配置oss，详细配置请看参数说明及准备说明。因为openai返回的图片url有效期很短，过期了无法访问，如果返回base64，浏览器存不下。
+- 12.增加支持**whisper-1**音视频转文字功能。该功能也强烈建议配置oss，不然聊天记录不保存文件，影响点击重试。
+- 13.增加支持**tts**文字转语音功能，语音可以直接播放。该功能必须配置oss，不然返回的文件没地方存，如果你的应用地址是https，则oss也必须是https，不然会出现无法播放的问题。
 - 14.增加设置里可以自定义stable-diffusion接口地址，设置了则用户端请求的时候会使用用户端填的sd地址，如果不想用户设置自定义sd接口地址，则增加环境变量 HIDE_SD_SETTING=1
-- 15.增加自定义网站标题功能，通过启动参数APP_TITLE=指定，需要获得永久授权后生效。
-- 16.增加支持gpt-4-all逆向模型（需要你的接口支持），支持上传所有类型文件进行分析，必须配置oss，不然没地方保存文件，至于使用国内oss还是国外oss，具体看你模型后端能力能访问到哪个oss。
-- 17.增加自定义网站副标题，通过启动参数APP_SUB_TITLE=指定，须获得永久授权后生效。
+- 15.增加**自定义网站标题**功能，通过启动参数APP_TITLE=指定，需要获得永久授权后生效。
+- 16.增加**自定义网站副标题**，通过启动参数APP_SUB_TITLE=指定，须获得永久授权后生效。
+- 17.增加支持**gpt-4-all**逆向模型（需要你的接口支持），支持上传所有类型文件进行分析，必须配置oss，不然没地方保存文件，至于使用国内oss还是国外oss，具体看你模型后端能力能访问到哪个oss。
+- 18.增加支持**链接传入自定义模型，并可支持替换当前模型**，新增链接参数customModels，多个模型用英文逗号","分开，新增replaceCurrentModel，传true或false，当为true时，替换取第一个模型替换掉当前聊天模型。
+- 19.增加支持**oneapi中转的stable-diffusion接口**，增加参数STABLE_DIFFUSION_API_KEY=，填接口密钥。中转的必须是sd-webui的标准接口。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -51,13 +53,14 @@
 
 ### 增加的参数
 #### 兼容原版[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)所有参数，这边只列了新增参数
-| 参数名称                      | 必填 | 说明                                                                                                                                                                                                                                                    |
+| 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
 |-----------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MIDJOURNEY_PROXY_URL        | 否  | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                                   |
 | MIDJOURNEY_PROXY_API_SECRET | 否  | Midjourney代理地址接口密钥，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                               |
 | HIDE_MIDJOURNEY_SETTING     | 否  | 如果需要隐藏Midjourney设置，则把值设成 1                                                                                                                                                                                                                            |
 | DISCORDCDN_PROXY_URL        | 否  | Discordcdn图片地址代理，不填的话，如果访问不了discordcdn，就获取不到图片                                                                                                                                                                                                        |
 | STABLE_DIFFUSION_BASE_URL   | 否  | Stable-diffusion的接口地址，需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，[开启api](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API)。如果要用该功能，必须要配置后面的OSS相关参数，因为stable-diffusion返回的是图片base64，需要有地方存图片 |
+| STABLE_DIFFUSION_API_KEY    | 否  | Stable-diffusion的接口密钥，接口地址是oneapi中转的时候可用                                                                                                                                                                                                              |
 | STABLE_DIFFUSION_TIMEOUT    | 否  | Stable-diffusion的接口超时时间，默认10分钟                                                                                                                                                                                                                        |
 | HIDE_SD_SETTING             | 否  | 是否隐藏Stable-diffusion自定义接口设置，默认不隐藏，如需隐藏，则设成 1。                                                                                                                                                                                                         |
 | OSS_TYPE                    | 否  | OSS 类型，取值( aliyun 或 minio )。填了代表需要上传到oss，且下面的相关参数都得填，具体看下面的参数说明                                                                                                                                                                                       |
@@ -84,7 +87,7 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.8
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.9
 ```
 ##### 2.启动应用
 ```shell
@@ -92,7 +95,7 @@ docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e BASE_URL="https://xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.8
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.9
 ```
 其它参数也是通过增加 -e 然后跟上参数名称和参数值， \ 是换行拼接。
 
