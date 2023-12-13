@@ -21,7 +21,7 @@
 - 16.增加**自定义网站副标题**，通过启动参数APP_SUB_TITLE=指定，须获得永久授权后生效。
 - 17.增加支持**gpt-4-all**逆向模型（需要你的接口支持），支持上传所有类型文件进行分析，必须配置oss，不然没地方保存文件，至于使用国内oss还是国外oss，具体看你模型后端能力能访问到哪个oss。
 - 18.增加支持**链接传入自定义模型，并可支持替换当前模型**，新增链接参数customModels，多个模型用英文逗号","分开，新增replaceCurrentModel，传true或false，当为true时，替换取第一个模型替换掉当前聊天模型。
-- 19.增加支持**oneapi中转的stable-diffusion接口**，增加参数STABLE_DIFFUSION_API_KEY=，填接口密钥。中转的必须是sd-webui的标准接口。
+- 19.增加支持**oneapi中转的stable-diffusion接口**，增加参数STABLE_DIFFUSION_API_KEY=，填接口密钥。中转的必须是[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)的标准接口。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -60,7 +60,7 @@
 | HIDE_MIDJOURNEY_SETTING     | 否  | 如果需要隐藏Midjourney设置，则把值设成 1                                                                                                                                                                                                                            |
 | DISCORDCDN_PROXY_URL        | 否  | Discordcdn图片地址代理，不填的话，如果访问不了discordcdn，就获取不到图片                                                                                                                                                                                                        |
 | STABLE_DIFFUSION_BASE_URL   | 否  | Stable-diffusion的接口地址，需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，[开启api](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API)。如果要用该功能，必须要配置后面的OSS相关参数，因为stable-diffusion返回的是图片base64，需要有地方存图片 |
-| STABLE_DIFFUSION_API_KEY    | 否  | Stable-diffusion的接口密钥，接口地址是oneapi中转的时候可用                                                                                                                                                                                                              |
+| STABLE_DIFFUSION_API_KEY    | 否  | Stable-diffusion的接口密钥，接口地址是oneapi中转的时候可用，中转的必须是[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)的标准接口。                                                                                                                                                                                         |
 | STABLE_DIFFUSION_TIMEOUT    | 否  | Stable-diffusion的接口超时时间，默认10分钟                                                                                                                                                                                                                        |
 | HIDE_SD_SETTING             | 否  | 是否隐藏Stable-diffusion自定义接口设置，默认不隐藏，如需隐藏，则设成 1。                                                                                                                                                                                                         |
 | OSS_TYPE                    | 否  | OSS 类型，取值( aliyun 或 minio )。填了代表需要上传到oss，且下面的相关参数都得填，具体看下面的参数说明                                                                                                                                                                                       |
