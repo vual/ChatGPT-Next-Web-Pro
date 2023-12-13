@@ -20,7 +20,7 @@
 - 15.增加**自定义网站标题**功能，通过启动参数APP_TITLE=指定，需要获得永久授权后生效。
 - 16.增加**自定义网站副标题**，通过启动参数APP_SUB_TITLE=指定，须获得永久授权后生效。
 - 17.增加支持**gpt-4-all**逆向模型（需要你的接口支持），支持上传所有类型文件进行分析，必须配置oss，不然没地方保存文件，至于使用国内oss还是国外oss，具体看你模型后端能力能访问到哪个oss。
-- 18.增加支持**链接传入自定义模型，并可支持替换当前模型**，新增链接参数customModels，多个模型用英文逗号","分开，新增replaceCurrentModel，传true或false，当为true时，替换取第一个模型替换掉当前聊天模型。
+- 18.增加支持**链接传入自定义模型，并可支持替换当前模型**，新增链接参数customModels，多个模型用英文逗号","分开，新增replaceCurrentModel，传true或false，当为true时，替换取第一个模型替换掉当前聊天模型。例如：从其它应跳转到当前应用，链接为：http://localhost:3000/#/chat?settins={"key":"xxx","url":"xxx","customModels":"xxx,xxx","replaceCurrentModel":true}
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
