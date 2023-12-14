@@ -3,7 +3,7 @@
 - 版本号：3.5.9，更新日期：2023.12.13
 
 ### 特性（无后端版本）：
-- 1.完整的[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.12.12
+- 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWebTeam/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.12.12
 - 2.**增加对接midjourney绘图功能**，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.**支持图片上传至阿里云oss或Minio（私有化oss）**，方便图片永久存储，且预览加载更快。
 - 4.增加了所有绘画记录页面。
@@ -51,7 +51,7 @@
 ![image](./images/img11.png)
 
 ### 增加的参数
-#### 兼容原版[ChatGPT-Next-Web](https://github.com/Yidadaa/ChatGPT-Next-Web)所有参数，这边只列了新增参数
+#### 兼容原版[ChatGPT-Next-Web](https://github.com/ChatGPTNextWebTeam/ChatGPT-Next-Web)所有参数，这边只列了新增参数
 | 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
 |-----------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MIDJOURNEY_PROXY_URL        | 否  | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                                   |
