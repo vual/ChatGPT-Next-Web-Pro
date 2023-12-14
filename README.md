@@ -91,11 +91,11 @@ docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
-  -e BASE_URL="https://xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
   registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.9
 ```
-BASE_URL不填的时候，默认是https://api.openai.com，如果你有中转地址，就填中转地址，其它参数也是通过增加 -e 然后跟上参数名称和参数值， \ 是换行拼接。
+如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com，
+其它参数也是通过增加 -e 然后跟上参数名称和参数值， \ 是换行拼接。
 
 ### 授权码价格
 #### 授权绑定完整的二级域名，绑定后，只能通过绑定的域名或IP访问！！！也不能更改绑定的域名或IP！！！
