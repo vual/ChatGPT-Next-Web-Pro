@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.5.9，更新日期：2023.12.13
+- 版本号：3.5.10，更新日期：2023.12.13
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWebTeam/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.12.12
@@ -85,14 +85,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.9
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.10
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.9
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.10
 ```
 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com，
 其它参数也是通过增加 -e 然后跟上参数名称和参数值， \ 是换行拼接。
