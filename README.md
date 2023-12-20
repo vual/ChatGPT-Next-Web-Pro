@@ -23,7 +23,7 @@
 - 18.增加支持**链接传入自定义模型，并可支持替换当前模型**，新增链接参数customModels，多个模型用英文逗号","分开，新增replaceCurrentModel，传true或false，当为true时，替换取第一个模型替换掉当前聊天模型。例如：从其它应跳转到当前应用，链接为：http://localhost:3000/#/chat?settins={"key":"xxx","url":"xxx","customModels":"xxx,xxx","replaceCurrentModel":true}
 - 19.增加**支持腾讯云COS(对象存储OSS)**，具体参数请看参数说明
 - 20.增加**支持直接在输入框粘贴文件的方式上传文件**，只能粘贴模型支持的文件类型。
-- 21.增加**支持fastgpt知识库接口**，KNOWLEDGE_BASE_URL=设定fastgpt根地址，配合自定义模型CUSTOM_MODELS=，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，apikey不会传到用户端，只会在服务端，可以放心。
+- 21.增加**支持[fastgpt](https://github.com/labring/FastGPT)知识库接口**，KNOWLEDGE_BASE_URL=设定fastgpt根地址，配合自定义模型CUSTOM_MODELS=，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，apikey不会传到用户端，只会在服务端，可以放心。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
