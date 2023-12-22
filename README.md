@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.5.13(arm64版本加“-arm”)，更新日期：2023.12.20
+- 版本号：3.5.15，更新日期：2023.12.22
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2023.12.20
@@ -10,7 +10,7 @@
 - 5.**接入了stable-diffussion**，文生图、图生图、后期处理、图片信息，近乎完整的参数设置，以及图片完成后的菜单按钮。
 - 6.**stable-diffusion加入了lora模型**。
 - 7.**增加翻译功能**，自动识别输入的内容是中文还是英文（如果大部分是中文，则翻译成英文，反之亦然）。
-- 8.**设置里增加自定义mj代理密钥**，**且兼容oneapi的mj代理**，并增加环境变量 HIDE_MIDJOURNEY_SETTING，如果设成1，则隐藏mj设置。
+- 8.**设置里增加自定义mj代理密钥**，**且兼容oneapi的mj代理**，MIDJOURNEY_PROXY_URL填oneapi的接口地址，MIDJOURNEY_PROXY_API_SECRET填oneapi的apikey，并增加环境变量 HIDE_MIDJOURNEY_SETTING，如果设成1，则隐藏mj设置。
 - 9.设置里增加展示聊天记录占用存储情况，浏览器localstorage只有5m，存储快满时，建议导出数据备份，然后删除浏览器存的对话。
 - 10.增加支持 【***gpt4-vision-preview***】 识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地聊天记录不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去，建议开通美国阿里云oss。
 - 11.增加支持 【***dall-e-3***】 功能，兼容dall-e-2。该功能强烈建议配置oss，详细配置请看参数说明及准备说明。因为openai返回的图片url有效期很短，过期了无法访问，如果返回base64，浏览器存不下。
@@ -24,21 +24,21 @@
 - 19.增加**支持腾讯云COS(对象存储OSS)**，具体参数请看参数说明
 - 20.增加**支持直接在输入框粘贴文件的方式上传文件**，只能粘贴模型支持的文件类型。
 - 21.增加**支持[fastgpt](https://github.com/labring/FastGPT)知识库接口**，KNOWLEDGE_BASE_URL=设定fastgpt根地址，配合自定义模型CUSTOM_MODELS=，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，apikey不会传到用户端，只会在服务端，可以放心。
+- 22.增加**支持gpt-4-gizmo开头的模型文件上传**。
+- 23.增加自定义输入框提示，参数INPUT_PLACEHOLDER=
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
 - 2.正在接入后端管理，目前已实现公众号扫码登录，待其它功能实现后发布。
 
 ### 后续待实现
-- 【完成】1.接入stable diffussion绘画。
-- 【doing】2.接入后端管理，增加账号登录功能。
-- 【     】3.权限管理，角色分配，绘画权限，知识库权限，聊天记录保存、查阅等。
-- 【     】4.微信扫码、企微免登。
-- 【     】5.接入主流知识库，如fastGPT、Dify等。
-- 【     】6.联网搜索。
-- 【     】7.function call。
-- 【完成】8.接入DALL-E。
-- 【     】9.待思考。。。
+- 【doing】1.接入后端管理，增加账号登录功能。
+- 【     】2.权限管理，角色分配，绘画权限，知识库权限，聊天记录保存、查阅等。
+- 【     】3.微信扫码、企微免登。
+- 【     】4.接入主流知识库，如fastGPT、Dify等。
+- 【     】5.联网搜索。
+- 【     】6.function call。
+- 【     】7.待思考。。。
 
 ### 示例图片
 ![image](./images/img1.png)
@@ -77,6 +77,7 @@
 | APP_SUB_TITLE               | 否  | 自定义网站副标题，需要获得永久授权后才会生效                                                                                                                                                                                                                                |
 | KNOWLEDGE_BASE_URL          | 否  | fastgpt的接口根地址，比如：https://ai.fastgpt.in/api ，需配合自定义模型参 CUSTOM_MODELS                                                                                                                                                                                   |
 | CUSTOM_MODELS               | 否  | 自定义模型参数，基于原版参数拓展，兼容原版功能。通过自定义模型名称对应fastgpt里的应用，及对应key，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，只会把知识库名称传到前端，apikey不会传到用户端，只会在服务端，可以放心。                                                                                           |
+| INPUT_PLACEHOLDER           | 否  | 自定义输入框提示。                                                                                                                                                                                                                                             |
 
 ### 需要准备什么
 - 1.若干个二级域名，本应用需要一个，另外代理discord，openai，aliyun-oss等，都需要域名
@@ -91,14 +92,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.13
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.15
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.13
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.5.15
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
