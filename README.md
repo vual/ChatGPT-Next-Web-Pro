@@ -26,7 +26,7 @@
 - 21.增加**支持[fastgpt](https://github.com/labring/FastGPT)知识库接口**，KNOWLEDGE_BASE_URL=设定fastgpt根地址，配合自定义模型CUSTOM_MODELS=，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，apikey不会传到用户端，只会在服务端，可以放心。
 - 22.增加**支持gpt-4-gizmo开头的模型文件上传**。
 - 23.增加自定义输入框提示，参数INPUT_PLACEHOLDER=
-- 24.增加**朗读文字**功能。
+- 24.增加**朗读文字**功能，设置里可以设置语言和声源。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
