@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.6.0，更新日期：2024.01.03
+- 版本号：3.6.1，更新日期：2024.01.05
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.01.03
@@ -27,6 +27,7 @@
 - 22.增加**支持gpt-4-gizmo开头的模型文件上传**。
 - 23.增加自定义输入框提示，参数INPUT_PLACEHOLDER=
 - 24.增加**朗读文字**功能，设置里可以设置语言和声源。
+- 25.增加**语音输入**功能，通过录音，发送给openai进行语音转文字，填到输入框里。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -93,14 +94,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.0
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.1
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.1
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
