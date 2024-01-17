@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.6.3，更新日期：2024.01.10，（arm64版本号：3.6.3-arm）
+- 版本号：3.6.4，更新日期：2024.01.17，（arm64版本号：3.6.3-arm）
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.01.09
@@ -29,6 +29,7 @@
 - 24.增加**朗读文字**功能，设置里可以设置语言和声源。
 - 25.增加**语音输入**功能，通过录音，发送给openai进行语音转文字，填到输入框里。该功能需要https访问，才能调起浏览器语音权限。启动参数 HIDE_VOICE_INPUT=1，则会隐藏语音输入
 - 26.增加参数REPLACE_MJURL_WITH_BASEURL，当设成1时，如果用户和启动参数都没填mj的接口地址和密钥，则自动使用base_url和openai_api_key当作mj的接口地址和密钥。
+- 27.增加**支持gemini-pro-vision上传图片**。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -98,14 +99,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.3
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.4
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.3
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.4
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
