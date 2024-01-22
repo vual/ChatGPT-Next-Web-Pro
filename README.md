@@ -131,7 +131,7 @@ docker run -d -p 3000:3000 \
 
 ![img.png](img.png)
 
-需要在ngnix配置里增加：
+需要在ngnix的server或者location下增加配置：
 ```shell
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
