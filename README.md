@@ -131,7 +131,7 @@ docker run -d -p 3000:3000 \
 
 ![img.png](img.png)
 
-需要在ngnix的server或者location下增加配置：
+需要在ngnix的server或者location下增加配置，如果是宝塔，记得关闭ng缓存：
 ```shell
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
