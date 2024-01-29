@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.6.7，更新日期：2024.01.24，（arm64版本号：3.6.7-arm）
+- 版本号：3.7.0，更新日期：2024.01.29，（arm64版本号：3.6.7-arm）
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.01.24
@@ -30,6 +30,7 @@
 - 25.增加**语音输入**功能，通过录音，发送给openai进行语音转文字，填到输入框里。该功能需要https访问，才能调起浏览器语音权限。启动参数 HIDE_VOICE_INPUT=1，则会隐藏语音输入
 - 26.增加参数REPLACE_MJURL_WITH_BASEURL，当设成1时，如果用户和启动参数都没填mj的接口地址和密钥，则自动使用base_url和openai_api_key当作mj的接口地址和密钥。
 - 27.增加**支持gemini-pro-vision上传图片**。
+- 28.增加**GPTs商店**，一些gpts应用需要你接口支持，大部分可以在官方接口使用。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -56,6 +57,7 @@
 ![image](./images/img9.png)
 ![image](./images/img10.png)
 ![image](./images/img11.png)
+![image](./images/img12.png)
 
 ### 增加的参数
 #### 兼容原版[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)所有参数，这边只列了新增参数
@@ -99,14 +101,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.7
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.0
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.6.7
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.0
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
@@ -115,9 +117,9 @@ docker run -d -p 3000:3000 \
 ### 授权码价格
 #### 授权绑定你自己的二级域名，绑定后，只能通过绑定的域名访问！！！也不能更改绑定的域名！！！也可以绑定公网IP，但不建议。试用可以绑定内网IP。
 #### 无后端版本（后续更新也不会接入后端相关功能）：
-- 绑定1个域名或IP，限时特惠：￥159
-- 绑定2个域名或IP，限时特惠：￥289
-- 绑定3个域名或IP，限时特惠：￥399
+- 绑定1个域名或IP，限时特惠：￥189
+- 绑定2个域名或IP，限时特惠：￥339
+- 绑定3个域名或IP，限时特惠：￥469
 
 （付费即永久授权，授权不包含源码。可以先试用，试用不收费。）
 
