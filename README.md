@@ -3,7 +3,7 @@
 - 版本号：3.7.0，更新日期：2024.01.29，（arm64版本号：3.6.7-arm）
 
 ### 特性（无后端版本）：
-- 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.01.24
+- 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.01.29
 - 2.**增加对接midjourney绘图功能**，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.**支持图片上传至阿里云oss或Minio（私有化oss）**，方便图片永久存储，且预览加载更快。
 - 4.增加了所有**绘画记录**页面。
