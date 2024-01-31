@@ -1,6 +1,6 @@
 ### 版本
 #### 无后端：
-- 版本号：3.7.0，更新日期：2024.01.29，（arm64版本号：3.6.7-arm）
+- 版本号：3.7.1，更新日期：2024.01.31，（arm64版本号：3.7.1-arm）
 
 ### 特性（无后端版本）：
 - 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.01.29
@@ -30,7 +30,7 @@
 - 25.增加**语音输入**功能，通过录音，发送给openai进行语音转文字，填到输入框里。该功能需要https访问，才能调起浏览器语音权限。启动参数 HIDE_VOICE_INPUT=1，则会隐藏语音输入
 - 26.增加参数REPLACE_MJURL_WITH_BASEURL，当设成1时，如果用户和启动参数都没填mj的接口地址和密钥，则自动使用base_url和openai_api_key当作mj的接口地址和密钥。
 - 27.增加**支持gemini-pro-vision上传图片**。
-- 28.增加**GPTs商店**，一些gpts应用需要你接口支持，大部分可以在官方接口使用。
+- 28.增加**GPTs商店**，一些gpts应用官方接口不支持，需要购买中转接口，增加HIDE_GPTS=，如果需要隐藏gpts，则设为1。
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -87,6 +87,7 @@
 | CUSTOM_MODELS               | 否  | 自定义模型参数，基于原版参数拓展，兼容原版功能。通过自定义模型名称对应fastgpt里的应用，及对应key，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，只会把知识库名称传到前端，apikey不会传到用户端，只会在服务端，可以放心。                                                                                           |
 | INPUT_PLACEHOLDER           | 否  | 自定义输入框提示。                                                                                                                                                                                                                                             |
 | HIDE_VOICE_INPUT            | 否  | 如果需要屏蔽语音输入，则把该参数设成1。                                                                                                                                                                                                                                  |
+| HIDE_GPTS                   | 否  | 如果需要隐藏GPTS，则把该参数设成1。                                                                                                                                                                                                                                  |
 
 ### 需要准备什么
 - 1.若干个二级域名，本应用需要一个，另外代理discord，openai，aliyun-oss等，都需要域名
@@ -101,14 +102,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.0
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.1
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.1
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
