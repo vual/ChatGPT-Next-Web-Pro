@@ -1,9 +1,9 @@
 ### 版本
 #### 无后端：
-- 版本号：3.7.5，更新日期：2024.02.09，（arm64版本号：3.7.5-arm）
+- 版本号：3.7.6，更新日期：2024.02.18，（arm64版本号：3.7.6-arm）
 
 ### 特性（无后端版本）：
-- 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.02.09
+- 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.02.18
 - 2.**增加对接midjourney绘图功能**，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
 - 3.**支持图片上传至阿里云oss或Minio（私有化oss）**，方便图片永久存储，且预览加载更快。
 - 4.增加了所有**绘画记录**页面。
@@ -103,14 +103,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.5
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.6
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.5
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.6
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
@@ -152,6 +152,10 @@ proxy_set_header Host $http_host;
 4.配置了aliyun oss，出现图片无法预览，点击链接变成下载，那就是需要绑定自己的域名，然后启动参数增加 OSS_DOMAIN="绑定的域名"，[绑定方法参考](https://help.aliyun.com/zh/oss/user-guide/map-custom-domain-names-5)
 
 5.腾讯云oss跨域问题，[可以参考](https://cloud.tencent.com/document/product/436/13318)
+
+6.如果出现画图的聊天记录导出图片时，无法下载，则要排查下，图片地址是否是https，如果不是，则需要开启https，具体开启方式要看对应的oss，或画图接口那边，地址域名要有ssl证书。
+![img_1.png](img_1.png)
+
 
 
 
