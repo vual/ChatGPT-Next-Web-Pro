@@ -3,35 +3,39 @@
 - 版本号：3.7.7，更新日期：2024.02.27，（arm64版本号：3.7.7-arm）
 
 ### 特性（无后端版本）：
-- 1.完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.02.18
-- 2.**增加对接midjourney绘图功能**，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
-- 3.**支持图片上传至阿里云oss或Minio（私有化oss）**，方便图片永久存储，且预览加载更快。
-- 4.增加了所有**绘画记录**页面。
-- 5.**接入了stable-diffussion**，文生图、图生图、后期处理、图片信息，近乎完整的参数设置，以及图片完成后的菜单按钮。
-- 6.**stable-diffusion加入了lora模型**。
-- 7.**增加翻译功能**，自动识别输入的内容是中文还是英文（如果大部分是中文，则翻译成英文，反之亦然）。
-- 8.**设置里增加自定义mj代理密钥**，**且兼容oneapi的mj代理**，MIDJOURNEY_PROXY_URL填oneapi的接口地址，MIDJOURNEY_PROXY_API_SECRET填oneapi的apikey，并增加环境变量 HIDE_MIDJOURNEY_SETTING，如果设成1，则隐藏mj设置。
-- 9.设置里增加展示聊天记录占用存储情况，浏览器localstorage只有5m，存储快满时，建议导出数据备份，然后删除浏览器存的对话。
-- 10.增加支持 【***gpt4-vision-preview***】 识图功能，可以上传多张图片。建议配合OSS使用，不然受限于浏览器localstorage只有5m，本地聊天记录不保存图片信息，配置了则会保存图片链接。由于国外无法访问国内oss，只会把图片base64发送出去，建议开通美国阿里云oss。
-- 11.增加支持 【***dall-e-3***】 功能，兼容dall-e-2。该功能强烈建议配置oss，详细配置请看参数说明及准备说明。因为openai返回的图片url有效期很短，过期了无法访问，如果返回base64，浏览器存不下。
-- 12.增加支持 【***whisper-1***】 音视频转文字功能。该功能也强烈建议配置oss，不然聊天记录不保存文件，影响点击重试。
-- 13.增加支持 【***tts***】 文字转语音功能，语音可以直接播放。该功能必须配置oss，不然返回的文件没地方存，如果你的应用地址是https，则oss也必须是https，不然会出现无法播放的问题。
-- 14.增加**设置里可以自定义stable-diffusion接口地址**，设置了则用户端请求的时候会使用用户端填的sd地址，如果不想用户设置自定义sd接口地址，则增加环境变量 HIDE_SD_SETTING=1
-- 15.增加**自定义网站标题**功能，通过启动参数APP_TITLE=指定，需要获得永久授权后生效。
-- 16.增加**自定义网站副标题**，通过启动参数APP_SUB_TITLE=指定，须获得永久授权后生效。
-- 17.增加支持 【***gpt-4-all***】 逆向模型（需要你的接口支持），支持上传所有类型文件进行分析，必须配置oss，不然没地方保存文件，至于使用国内oss还是国外oss，具体看你模型后端能力能访问到哪个oss。
-- 18.增加支持**链接传入自定义模型，并可支持替换当前模型**，新增链接参数customModels，多个模型用英文逗号","分开，新增replaceCurrentModel，传true或false，当为true时，替换取第一个模型替换掉当前聊天模型。例如：从其它应跳转到当前应用，链接为：http://localhost:3000/#/chat?settings={"key":"xxx","url":"xxx","customModels":"xxx,xxx","replaceCurrentModel":true}
-- 19.增加**支持腾讯云COS(对象存储OSS)**，具体参数请看参数说明
-- 20.增加**支持直接在输入框粘贴文件的方式上传文件**，只能粘贴模型支持的文件类型。
-- 21.增加**支持[fastgpt](https://github.com/labring/FastGPT)知识库接口**，KNOWLEDGE_BASE_URL=设定fastgpt根地址，配合自定义模型CUSTOM_MODELS=，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，apikey不会传到用户端，只会在服务端，可以放心。
-- 22.增加**支持gpt-4-gizmo开头的模型文件上传**。
-- 23.增加自定义输入框提示，参数INPUT_PLACEHOLDER=
-- 24.增加**朗读文字**功能，设置里可以设置语言和声源。
-- 25.增加**语音输入**功能，通过录音，发送给openai进行语音转文字，填到输入框里。该功能需要https访问，才能调起浏览器语音权限。启动参数 HIDE_VOICE_INPUT=1，则会隐藏语音输入
-- 26.增加参数REPLACE_MJURL_WITH_BASEURL，当设成1时，如果用户和启动参数都没填mj的接口地址和密钥，则自动使用base_url和openai_api_key当作mj的接口地址和密钥。
-- 27.增加**支持gemini-pro-vision上传图片**。
-- 28.增加**GPTs商店**，一些gpts应用官方接口不支持，需要购买中转接口，增加HIDE_GPTS=，如果需要隐藏gpts，则设为1。
-- 29.增加模型是gpt-4-all或者gpts应用时，支持**自定义文件上传地址（包括上传按钮和输入框粘贴文件上传）**，上传地址不能有鉴权，返回的数据格式不限，但需要有文件地址。参数名称FILE_UPLOAD_URL=
+- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.02.18
+- **二**. **文件上传和存储**，接入OSS，也支持自定义文件上传接口，配置详见参数说明，以下任选一种即可：
+  - 1.**阿里云OSS**，国外那些服务有可能访问不了国内的OSS，建议国内和国际版都测试下。
+  - 2.**腾讯云COS**，同上，也是OSS。
+  - 3.**MINIO**，私有化部署的OSS，免费的，只是会占用自己的带宽。
+  - 4.**自定义文件上传接口**，返回的文件地址需要公网可访问，启动时参数：FILE_UPLOAD_URL=
+- **三**. **画图支持**，图片需要有地方存，强烈建议配合OSS或自定义文件上传接口，详见第2点：
+  - 1.**Midjourney**，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
+  - 2.**Stable-Diffussion**，**支持lora模型**，**文生图、图生图、后期处理、图片信息**，近乎完整的参数设置，以及图片完成后的功能按钮。
+  - 3.**Dall-E-3**，兼容dall-e-2。
+  - 4.增加了**绘画记录**页面，方便查看所有绘图记录。
+- **四**. **多模态支持**，强烈建议配置第二点说的文件上传功能：
+  - 1.**gpt4-vision-preview**，如果没配置文件存储功能，则只会发送base64的内容到openai，本地不保存图片。
+  - 2.**Dall-E-3**，兼容dall-e-2。
+  - 3.**Whisper和TTS系列模型**。
+  - 4.**gemini-pro-vision**，可以上传图片。
+- **五**. **逆向模型支持**
+  - 1.**支持gpt-4-all**，官方接口不支持该模型，需要购买国内中转接口服务。支持上传所有类型文件，需要配合第二点的文件上传功能。
+  - 2.**集成GPT商店**，**支持gpt-4-gizmo开头的模型**，部分模型也需要购买国内中转接口服务才行，支持上传所有类型文件。支持隐藏gpt商店，参数HIDE_GPTS=1。
+- **六**. **知识库**
+  - 1.**接入[fastgpt](https://github.com/labring/FastGPT)知识库**，KNOWLEDGE_BASE_URL=设定fastgpt根地址，配合自定义模型参数CUSTOM_MODELS=，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，apikey不会传到用户端，只会在服务端，可以放心。
+- **七**. 其它功能：
+  - 1.**翻译**，自动识别输入的内容是中文还是英文（如果大部分是中文，则翻译成英文，反之亦然）。
+  - 2.**设置里增加自定义mj代理密钥**，**Midjourney兼容oneapi的mj代理**，MIDJOURNEY_PROXY_URL填oneapi的接口地址，MIDJOURNEY_PROXY_API_SECRET填oneapi的apikey。
+  - 3.**支持直接使用BASE_URL和OPENAI_API_KEY的值当作mj的接口地址和密钥**，需要设置参数REPLACE_MJURL_WITH_BASEURL=1
+  - 4.**设置里可以自定义stable-diffusion接口地址**。
+  - 5.**设置里增加展示聊天记录占用存储情况**，浏览器localstorage只有5m，存储快满时，建议导出数据备份，然后删除浏览器存的对话。
+  - 6.**自定义网站标题与副标题**，参数APP_TITLE=、APP_SUB_TITLE=，需要购买授权才生效。
+  - 7.**支持通过链接跳转进入应用时，自动填入自定义模型**，新增链接参数customModels，多个模型用英文逗号","分开，新增replaceCurrentModel，传true或false，当为true时，替换取第一个模型替换掉当前聊天模型。例如：从其它应跳转到当前应用，链接为：http://localhost:3000/#/chat?settings={"key":"xxx","url":"xxx","customModels":"xxx,xxx","replaceCurrentModel":true}
+  - 8.**支持直接在输入框粘贴文件的方式上传文件**。
+  - 9.**朗读文字**功能，设置里可以设置语言和声源。
+  - 10.**语音输入**功能，通过录音，发送给openai进行语音转文字，填到输入框里。该功能需要https访问，才能调起浏览器语音权限。启动参数 HIDE_VOICE_INPUT=1，则会隐藏语音输入
+
 
 ### 特性（有后端版本）：
 - 1.包含无后端版本的完整功能。
@@ -90,7 +94,7 @@
 | INPUT_PLACEHOLDER           | 否  | 自定义输入框提示。                                                                                                                                                                                                                                             |
 | HIDE_VOICE_INPUT            | 否  | 如果需要屏蔽语音输入，则把该参数设成1。                                                                                                                                                                                                                                  |
 | HIDE_GPTS                   | 否  | 如果需要隐藏GPTS，则把该参数设成1。                                                                                                                                                                                                                                  |
-| FILE_UPLOAD_URL             | 否  | 当模型是gpt-4-all或者gpts应用时，支持自定义文件上传地址（包括上传按钮和输入框粘贴文件上传），上传地址不能有鉴权，返回的数据格式不限，但需要有文件地址。                                                                                                                                                                    |
+| FILE_UPLOAD_URL             | 否  | 当模型是gpt-4-all或者gpts应用时，支持自定义文件上传地址（包括上传按钮和输入框粘贴文件上传），上传地址不能有鉴权，上传时的表单参数名 file 返回的数据格式不限，但需要有文件地址，文件地址需要公网可以访问。                                                                                                                                        |
 | ALWAYS_DISPLAY_MODEL        | 否  | 如果需要在模型选择那边常显模型名称，则把该参数设成1。                                                                                                                                                                                                                           |
 
 ### 需要准备什么
