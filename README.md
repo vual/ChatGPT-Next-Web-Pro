@@ -50,18 +50,21 @@
 - 【     】7.待思考。。。
 
 ### 示例图片
-<img src="./images/img1.png" width="40%">
-<img src="./images/img2.png" width="40%">
-<img src="./images/img3.png" width="49%">
-<img src="./images/img4.png" width="49%">
-<img src="./images/img5.png" width="49%">
-<img src="./images/img6.png" width="49%">
-<img src="./images/img7.png" width="49%">
-<img src="./images/img8.png" width="49%">
-<img src="./images/img9.png" width="49%">
-<img src="./images/img10.png" width="49%">
-<img src="./images/img11.png" width="49%">
-<img src="./images/img12.png" width="49%">
+<div style="display: flex">
+  <img src="./images/img1.png" width="49%">
+  <img src="./images/img2.png" width="49%">
+  <img src="./images/img3.png" width="49%">
+  <img src="./images/img4.png" width="49%">
+  <img src="./images/img5.png" width="49%">
+  <img src="./images/img6.png" width="49%">
+  <img src="./images/img7.png" width="49%">
+  <img src="./images/img8.png" width="49%">
+  <img src="./images/img9.png" width="49%">
+  <img src="./images/img10.png" width="49%">
+  <img src="./images/img11.png" width="49%">
+  <img src="./images/img12.png" width="49%">
+</div>
+
 
 ### 增加的参数
 #### 兼容原版[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)所有参数，这边只列了新增参数
