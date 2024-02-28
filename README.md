@@ -63,6 +63,12 @@
 ![image](./images/img11.png)
 ![image](./images/img12.png)
 
+<style>
+img[alt="image"] {
+  width: 49%;
+}
+</style>
+
 ### 增加的参数
 #### 兼容原版[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)所有参数，这边只列了新增参数
 | 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
