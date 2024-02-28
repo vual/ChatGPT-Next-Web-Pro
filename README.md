@@ -50,8 +50,8 @@
 - 【     】7.待思考。。。
 
 ### 示例图片
-<img src="./images/img1.png" width="49%">
-<img src="./images/img2.png" width="49%">
+<img src="./images/img1.png" width="40%">
+<img src="./images/img2.png" width="40%">
 <img src="./images/img3.png" width="49%">
 <img src="./images/img4.png" width="49%">
 <img src="./images/img5.png" width="49%">
