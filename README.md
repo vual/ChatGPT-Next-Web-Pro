@@ -1,14 +1,14 @@
 ### 版本
-#### 无后端：
+#### 无后台：
 - 版本号：3.7.7，更新日期：2024.02.27，（arm64版本号：3.7.7-arm）
 
-### 特性（无后端版本）：
+### 特性（无后台版本）：
 - **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.02.18
 - **二**. **文件上传和存储**，接入OSS，也支持自定义文件上传接口，配置详见参数说明，**强烈建议配置该功能，可以让下面很多功能更好用**，以下任选一种即可：
   - 1.**阿里云OSS**，国外那些服务有可能访问不了国内的OSS，建议国内和国际版都测试下。
   - 2.**腾讯云COS**，同上，也是OSS。
   - 3.**MINIO**，私有化部署的OSS，免费的，只是会占用自己的带宽。
-  - 4.**自定义文件上传接口**，返回的文件地址需要公网可访问，启动时参数：FILE_UPLOAD_URL=
+  - 4.**自定义文件上传接口**，返回的文件地址需要公网可访问，启动时参数：FILE_UPLOAD_URL=，也支持需要鉴权的上传接口，配合参数：FILE_UPLOAD_KEY=
 - **三**. **画图支持**，图片需要有地方存，强烈建议配合OSS或自定义文件上传接口，详见第2点：
   - 1.**Midjourney**，该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
   - 2.**Stable-Diffussion**，**支持lora模型**，**文生图、图生图、后期处理、图片信息**，近乎完整的参数设置，以及图片完成后的功能按钮。
@@ -24,7 +24,7 @@
   - 2.**集成GPT商店**，**支持gpt-4-gizmo开头的模型**，部分模型也需要购买国内中转接口服务才行，支持上传所有类型文件。支持隐藏gpt商店，参数HIDE_GPTS=1。
 - **六**. **知识库**
   - 1.**接入[fastgpt](https://github.com/labring/FastGPT)知识库**，KNOWLEDGE_BASE_URL=设定fastgpt根地址，配合自定义模型参数CUSTOM_MODELS=，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，apikey不会传到用户端，只会在服务端，可以放心。
-- **七**. 其它功能：
+- **七**. **其它功能**：
   - 1.**翻译**，自动识别输入的内容是中文还是英文（如果大部分是中文，则翻译成英文，反之亦然）。
   - 2.**设置里增加自定义mj代理密钥**，**Midjourney兼容oneapi的mj代理**，MIDJOURNEY_PROXY_URL填oneapi的接口地址，MIDJOURNEY_PROXY_API_SECRET填oneapi的apikey。
   - 3.**支持直接使用BASE_URL和OPENAI_API_KEY的值当作mj的接口地址和密钥**，需要设置参数REPLACE_MJURL_WITH_BASEURL=1
@@ -36,18 +36,17 @@
   - 9.**朗读文字**功能，设置里可以设置语言和声源。
   - 10.**语音输入**功能，通过录音，发送给openai进行语音转文字，填到输入框里。该功能需要https访问，才能调起浏览器语音权限。启动参数 HIDE_VOICE_INPUT=1，则会隐藏语音输入
 
-### 特性（有后端版本）：
-- 1.包含无后端版本的完整功能。
+### 特性（有后台版本）：
+- 1.包含无后台版本的完整功能。
 - 2.正在接入后端管理，目前已实现公众号扫码登录，待其它功能实现后发布。
 
 ### 后续待实现
 - 【doing】1.接入后端管理，增加账号登录功能。
 - 【     】2.权限管理，角色分配，绘画权限，知识库权限，聊天记录保存、查阅等。
 - 【     】3.微信扫码、企微免登。
-- 【 完成 】4.接入主流知识库，针对fastGPT知识库进行适配。
-- 【     】5.联网搜索。
-- 【     】6.function call。
-- 【     】7.待思考。。。
+- 【     】4.联网搜索。
+- 【     】5.function call。
+- 【     】6.待思考。。。
 
 ### 示例图片
 <div style="display: flex;flex-direction: column">
@@ -79,7 +78,26 @@
 
 
 ### 增加的参数
-#### 兼容原版[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)所有参数，这边只列了新增参数
+#### 兼容原版[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)所有参数，
+| 参数名称                        | 必填 | 说明                                                                                                                                                          |
+|-----------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPENAI_API_KEY              | 是  | openai的api key                                                                                                                                              |
+| BASE_URL                    | 否  | openai的接口代理或中转地址，默认`https://api.openai.com`                                                                                                                 |
+| OPENAI_ORG_ID               | 否  | OpenAI organization ID                                                                                                                                      |
+| AZURE_URL                   | 否  | azure的接口地址，Example: https://{azure-resource-url}/openai/deployments/{deploy-name}                                                                           |
+| AZURE_API_KEY               | 否  | azure的api key                                                                                                                                               |
+| AZURE_API_VERSION           | 否  | Azure Api Version, find it at [Azure Documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions).                 |
+| GOOGLE_API_KEY              | 否  | Google Gemini Pro Api Key                                                                                                                                   |
+| GOOGLE_URL                  | 否  | Google Gemini Pro Api Url                                                                                                                                   |
+| CODE                        | 否  | 应用的访问密码，可以设置多个，用英文逗号分割                                                                                                                                      |
+| HIDE_USER_API_KEY           | 否  | 如果不想让用户输入自己的apikey，则设成 1                                                                                                                                    |
+| DISABLE_GPT4                | 否  | 如果不想让用户使用GPT-4，则设成 1                                                                                                                                        |
+| ENABLE_BALANCE_QUERY        | 否  | 如果想让用户可以查询余额，则设成 1 ，否则设成 0                                                                                                                                  |
+| DISABLE_FAST_LINK           | 否  | 如果要禁用url中的解析设置，则设成 1                                                                                                                                        |
+| CUSTOM_MODELS               | 否  | 自定义模型设置，"+"号增加模型，"-"号隐藏模型，"="号设置模型展示的别名，"-all"禁用所有应用自带模型，例如：CUSTOM_MODELS=-all,+llama,-gpt-3.5-turbo,gpt-4=高级模型。本项目还对该参数进行扩展，支持fastgpt，详细设置请看下面新增参数里该参数的说明。 |
+
+
+### 本项目新增参数
 | 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
 |-----------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | MIDJOURNEY_PROXY_URL        | 否  | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                                   |
@@ -108,7 +126,9 @@
 | INPUT_PLACEHOLDER           | 否  | 自定义输入框提示。                                                                                                                                                                                                                                             |
 | HIDE_VOICE_INPUT            | 否  | 如果需要屏蔽语音输入，则把该参数设成1。                                                                                                                                                                                                                                  |
 | HIDE_GPTS                   | 否  | 如果需要隐藏GPTS，则把该参数设成1。                                                                                                                                                                                                                                  |
-| FILE_UPLOAD_URL             | 否  | 当模型是gpt-4-all或者gpts应用时，支持自定义文件上传地址（包括上传按钮和输入框粘贴文件上传），上传地址不能有鉴权，上传时的表单参数名 file 返回的数据格式不限，但需要有文件地址，文件地址需要公网可以访问。                                                                                                                                        |
+| FILE_UPLOAD_URL             | 否  | 自定义文件上传地址（包括上传按钮和输入框粘贴文件上传，以及画图模型返回的图片），上传时的表单参数名：file，返回的数据格式不限，但需要有文件地址，文件地址需要公网可以访问。填了这个参数，所有文件会优先上传到这个接口，没填则上传配置的OSS。                                                                                                                             |
+| FILE_UPLOAD_KEY             | 否  | 自定义文件上传接口的鉴权key，填了会在headers里增加 Authorization: "Bearer " + key，为了key的安全，填了key后，默认走服务端上传，要浏览器直接上传，则需要设置下面那个参数                                                                                                                                           |
+| FILE_UPLOAD_FROM_BROWSER    | 否  | 自定义文件上传接口填了key后，如果需要在浏览器直接把文件上传到该接口，则需要把这参数值设成：1。设置后，会把鉴权key暴露在浏览器端，有风险，但在文件服务器跟应用不是同一个服务器时，可以节省服务器带宽资源。                                                                                                                                              |
 | ALWAYS_DISPLAY_MODEL        | 否  | 如果需要在模型选择那边常显模型名称，则把该参数设成1。                                                                                                                                                                                                                           |
 
 ### 需要准备什么
@@ -140,7 +160,7 @@ docker run -d -p 3000:3000 \
 
 ### 授权码价格
 #### 授权绑定你自己的二级域名，绑定后，只能通过绑定的域名访问！！！也不能更改绑定的域名！！！也可以绑定公网IP，但不建议。试用可以绑定内网IP。
-#### 无后端版本（后续更新也不会接入后端相关功能）：
+#### 无后台版本（后续更新也不会接入后台相关功能）：
 - 绑定1个域名或IP，限时特惠：￥189
 - 绑定2个域名或IP，限时特惠：￥339
 - 绑定3个域名或IP，限时特惠：￥469
