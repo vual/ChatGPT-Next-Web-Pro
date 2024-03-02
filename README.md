@@ -20,8 +20,8 @@
   - 3.**Whisper和TTS系列模型**，需要配置文件上传和存储功能。
   - 4.**gemini-pro-vision**，可以上传图片。
 - **五**. **逆向模型支持**
-  - 1.**支持gpt-4-all**，官方接口不支持该模型，需要购买国内中转接口服务。支持上传所有类型文件，需要配合第二点的文件上传功能。
-  - 2.**集成GPT商店**，**支持gpt-4-gizmo开头的模型**，部分模型也需要购买国内中转接口服务才行，支持上传所有类型文件。支持隐藏gpt商店，参数HIDE_GPTS=1。
+  - 1.**支持gpt-4-all**，官方接口不支持该模型，需要购买支持该模型的中转接口服务。支持上传所有类型文件，需要配合第二点的文件上传功能。
+  - 2.**集成GPT商店**，**支持gpt-4-gizmo开头的模型**，部分模型也需要购买支持这些模型的中转接口服务，支持上传所有类型文件。支持隐藏gpt商店，参数HIDE_GPTS=1。
 - **六**. **知识库**
   - 1.**接入[fastgpt](https://github.com/labring/FastGPT)知识库**，KNOWLEDGE_BASE_URL=设定fastgpt根地址，配合自定义模型参数CUSTOM_MODELS=，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，apikey不会传到用户端，只会在服务端，可以放心。
 - **七**. **其它功能**：
@@ -79,23 +79,22 @@
 
 ### 增加的参数
 #### 兼容原版[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)所有参数，
-| 参数名称                        | 必填 | 说明                                                                                                                                                          |
-|-----------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| OPENAI_API_KEY              | 是  | openai的api key                                                                                                                                              |
-| BASE_URL                    | 否  | openai的接口代理或中转地址，默认`https://api.openai.com`                                                                                                                 |
-| OPENAI_ORG_ID               | 否  | OpenAI organization ID                                                                                                                                      |
-| AZURE_URL                   | 否  | azure的接口地址，Example: https://{azure-resource-url}/openai/deployments/{deploy-name}                                                                           |
-| AZURE_API_KEY               | 否  | azure的api key                                                                                                                                               |
-| AZURE_API_VERSION           | 否  | Azure Api Version, find it at [Azure Documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions).                 |
-| GOOGLE_API_KEY              | 否  | Google Gemini Pro Api Key                                                                                                                                   |
-| GOOGLE_URL                  | 否  | Google Gemini Pro Api Url                                                                                                                                   |
-| CODE                        | 否  | 应用的访问密码，可以设置多个，用英文逗号分割                                                                                                                                      |
-| HIDE_USER_API_KEY           | 否  | 如果不想让用户输入自己的apikey，则设成 1                                                                                                                                    |
-| DISABLE_GPT4                | 否  | 如果不想让用户使用GPT-4，则设成 1                                                                                                                                        |
-| ENABLE_BALANCE_QUERY        | 否  | 如果想让用户可以查询余额，则设成 1 ，否则设成 0                                                                                                                                  |
-| DISABLE_FAST_LINK           | 否  | 如果要禁用url中的解析设置，则设成 1                                                                                                                                        |
-| CUSTOM_MODELS               | 否  | 自定义模型设置，"+"号增加模型，"-"号隐藏模型，"="号设置模型展示的别名，"-all"禁用所有应用自带模型，例如：CUSTOM_MODELS=-all,+llama,-gpt-3.5-turbo,gpt-4=高级模型。本项目还对该参数进行扩展，支持fastgpt，详细设置请看下面新增参数里该参数的说明。 |
-
+| 参数名称                        | 必填 | 说明                                                                                                                                                           |
+|-----------------------------|----|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| OPENAI_API_KEY              | 是  | openai的api key                                                                                                                                               |
+| BASE_URL                    | 否  | openai的接口代理或中转地址，默认`https://api.openai.com`                                                                                                                  |
+| OPENAI_ORG_ID               | 否  | OpenAI organization ID                                                                                                                                       |
+| AZURE_URL                   | 否  | azure的接口地址，Example: https://{azure-resource-url}/openai/deployments/{deploy-name}                                                                            |
+| AZURE_API_KEY               | 否  | azure的api key                                                                                                                                                |
+| AZURE_API_VERSION           | 否  | Azure Api Version, find it at [Azure Documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#chat-completions).                  |
+| GOOGLE_API_KEY              | 否  | Google Gemini Pro Api Key                                                                                                                                    |
+| GOOGLE_URL                  | 否  | Google Gemini Pro Api Url                                                                                                                                    |
+| CODE                        | 否  | 应用的访问密码，可以设置多个，用英文逗号分割                                                                                                                                       |
+| HIDE_USER_API_KEY           | 否  | 如果不想让用户输入自己的apikey，则设成 1                                                                                                                                     |
+| DISABLE_GPT4                | 否  | 如果不想让用户使用GPT-4，则设成 1                                                                                                                                         |
+| ENABLE_BALANCE_QUERY        | 否  | 如果想让用户可以查询余额，则设成 1 ，否则设成 0                                                                                                                                   |
+| DISABLE_FAST_LINK           | 否  | 如果要禁用url中的解析设置，则设成 1                                                                                                                                         |
+| CUSTOM_MODELS               | 否  | 自定义模型设置，"+"号增加模型，"-"号隐藏模型，"="号设置模型展示的别名，"-all"禁用所有应用自带模型，例如：CUSTOM_MODELS=-all,+llama,-gpt-3.5-turbo,+gpt-4=高级模型。本项目还对该参数进行扩展，支持fastgpt，详细设置请看下面新增参数里该参数的说明。 |
 
 ### 本项目新增参数
 | 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
