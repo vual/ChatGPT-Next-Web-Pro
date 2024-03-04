@@ -94,7 +94,7 @@
 | DISABLE_GPT4                | 否  | 如果不想让用户使用GPT-4，则设成 1                                                                                                                                         |
 | ENABLE_BALANCE_QUERY        | 否  | 如果想让用户可以查询余额，则设成 1 ，否则设成 0                                                                                                                                   |
 | DISABLE_FAST_LINK           | 否  | 如果要禁用url中的解析设置，则设成 1                                                                                                                                         |
-| CUSTOM_MODELS               | 否  | 自定义模型设置，"+"号增加模型，"-"号隐藏模型，"="号设置模型展示的别名，"-all"禁用所有应用自带模型，例如：CUSTOM_MODELS=-all,+llama,-gpt-3.5-turbo,+gpt-4=高级模型。本项目还对该参数进行扩展，支持fastgpt，详细设置请看下面新增参数里该参数的说明。 |
+| CUSTOM_MODELS               | 否  | 自定义模型设置，"+"号增加模型，"-"号隐藏模型，"="号设置模型展示的别名，"-all"禁用所有应用自带模型，例如：CUSTOM_MODELS="-all,+llama,-gpt-3.5-turbo,+gpt-4=模型别名"。本项目还对该参数进行扩展，支持fastgpt，详细设置请看下面新增参数里该参数的说明。 |
 
 ### 本项目新增参数
 | 参数名称                        | 必填 | 说明                                                                                                                                                                                                                                                    |
