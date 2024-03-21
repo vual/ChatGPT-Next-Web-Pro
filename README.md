@@ -1,9 +1,10 @@
 ### 版本
 #### 无后台：
-- 版本号：3.7.10，更新日期：2024.03.14，（arm64版本号：3.7.10-arm）
+- 版本号：3.7.11，更新日期：2024.03.21，（arm64版本号：3.7.11-arm）
+- 社区版：3.7.11-ce，更新日期：2024.03.21，免费版本，不需要授权码，功能有限制，详细看后面说明。
 
 ### 特性（无后台版本）：
-- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.03.14
+- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.03.21
 - **二**. **文件上传和存储**，接入OSS，也支持自定义文件上传接口，配置详见参数说明，**强烈建议配置该功能，可以让下面很多功能更好用**，以下任选一种即可：
   - 1.**阿里云OSS**，国外那些服务有可能访问不了国内的OSS，建议国内和国际版都测试下。
   - 2.**腾讯云COS**，同上，也是OSS。
@@ -37,6 +38,17 @@
   - 9.**朗读文字**功能，设置里可以设置语言和声源。
   - 10.**语音输入**功能，通过录音，发送给openai进行语音转文字，填到输入框里。该功能需要https访问，才能调起浏览器语音权限。启动参数 HIDE_VOICE_INPUT=1，则会隐藏语音输入
   - 11.**支持所有模型上传文件**，非vision或者claude模型，则只会把文件链接拼在内容里发出去，至于能否解析，要看对应模型能力。
+  - 12.**增加实时展示用户输入内容的token数量**
+
+### 特性（社区版）
+- 免费使用，直接通过docker拉取镜像启动即可使用，需要把命令里的版本号改成社区版本号，不需要授权码。
+- 在无后台版本基础上，限制了一些功能，包括：
+  - 1.上传文件只支持minio存储。
+  - 2.限制了支持上传文件的模型，只有vision或者claude模型可以上传图片，Whisper上传语音文件，mj和dall-e-3画图会上传到minio。
+  - 2.画图不支持stable-diffusion。
+  - 3.不支持逆向模型，如gpt-4-all等，不支持gpts那些模型。
+  - 4.不支持知识库。
+  - 5.不支持修改网站标题、副标题、icon。
 
 ### 特性（有后台版本）：
 - 1.包含无后台版本的完整功能。
@@ -146,14 +158,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.10
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.11
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.10
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.11
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
@@ -172,6 +184,10 @@ docker run -d -p 3000:3000 \
 微信：822784588
 
 ![image](./images/author.png)
+
+交流群：
+
+![image](./img_2.png)
 
 ### 常见问题
 1.通过ngnix转发，页面停留在【需要密码】的页面进不去，
