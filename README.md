@@ -31,7 +31,7 @@
   - 3.**支持直接使用BASE_URL和OPENAI_API_KEY的值当作mj的接口地址和密钥**，需要设置参数REPLACE_MJURL_WITH_BASEURL=1
   - 4.**设置里可以自定义stable-diffusion接口地址**。
   - 5.**设置里增加展示聊天记录占用存储情况**，浏览器localstorage只有5m，存储快满时，建议导出数据备份，然后删除浏览器存的对话。
-  - 6.**自定义网站标题与副标题**，参数APP_TITLE=、APP_SUB_TITLE=，需要购买授权才生效。
+  - 6.**自定义网站标题、副标题、icon**，参数APP_TITLE=、APP_SUB_TITLE=、APP_ICON=，需要购买授权才生效。
   - 7.**支持通过链接跳转进入应用时，自动填入自定义模型**，新增链接参数customModels，多个模型用英文逗号","分开，新增replaceCurrentModel，传true或false，当为true时，替换取第一个模型替换掉当前聊天模型。例如：从其它应跳转到当前应用，链接为：http://localhost:3000/#/chat?settings={"key":"xxx","url":"xxx","customModels":"xxx,xxx","replaceCurrentModel":true}
   - 8.**支持直接在输入框粘贴文件的方式上传文件**。
   - 9.**朗读文字**功能，设置里可以设置语言和声源。
