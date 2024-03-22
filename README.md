@@ -143,6 +143,7 @@
 | FILE_UPLOAD_KEY             | 否  | 自定义文件上传接口的鉴权key，填了会在headers里增加 Authorization: "Bearer " + key，为了key的安全，填了key后，默认走服务端上传，要浏览器直接上传，则需要设置下面那个参数                                                                                                                                           |
 | FILE_UPLOAD_FROM_BROWSER    | 否  | 自定义文件上传接口填了key后，如果需要在浏览器直接把文件上传到该接口，则需要把这参数值设成：1。设置后，会把鉴权key暴露在浏览器端，有风险，但在文件服务器跟应用不是同一个服务器时，可以节省服务器带宽资源。                                                                                                                                              |
 | ALWAYS_DISPLAY_MODEL        | 否  | 如果需要在模型选择那边常显模型名称，则把该参数设成1。                                                                                                                                                                                                                           |
+| SEND_IMG_URL                | 否  | vision或claude模型，发送图片时，默认发送base64，如果需要发送url，则把该参数设成1，前提是配置了文件存储功能，且模型那边能识别url并通过url得到图片。发送url可以节省服务器带宽。                                                                                                                                                |
 
 ### 需要准备什么
 - 1.若干个二级域名，本应用需要一个，另外代理discord，openai，aliyun-oss等，都需要域名
