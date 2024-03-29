@@ -5,15 +5,15 @@
 
 ### 版本
 #### 无后台：
-- 更新日期：2024.03.22
+- 更新日期：2024.03.29
 - 版本号：
-  - 3.7.12，完整功能，需要授权码
-  - 3.7.12-arm，arm64版，完整功能，需要授权码
-  - 3.7.12-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
+  - 3.7.13，完整功能，需要授权码
+  - 3.7.13-arm，arm64版，完整功能，需要授权码
+  - 3.7.13-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
 
 
 ### 特性（无后台版本）：
-- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.03.22
+- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.03.29
 - **二**. **文件上传和存储**，接入OSS，也支持自定义文件上传接口，配置详见参数说明，**强烈建议配置该功能，可以让下面很多功能更好用**，以下任选一种即可：
   - 1.**阿里云OSS**，国外那些服务有可能访问不了国内的OSS，建议国内和国际版都测试下。
   - 2.**腾讯云COS**，同上，也是OSS。
@@ -137,7 +137,7 @@
 | OSS_HTTPS                   | 否  | type为minio，根据实际情况开启，如果endpoint是ip，那一般填false。如果网站https，那minio也得要通过https访问，不然可能会出现无法预览图片的问题，[可以参考](https://blog.csdn.net/weixin_40461281/article/details/124260888)。                                                                                    |
 | OSS_ACCESS_KEY              | 否  | aliyun则填accessKeyId，tencent则填SecretId，minio则填username                                                                                                                                                                                                 |
 | OSS_SECRET_KEY              | 否  | aliyun则填accessKeySecret，tencent则填SecretKey，minio则填password                                                                                                                                                                                            |
-| OSS_BUCKET                  | 否  | 桶名称（minio的桶权限需要设成public或者参照[minio权限](https://blog.csdn.net/zdb1314/article/details/125287537)进行配置，阿里云和腾讯云的桶可以不用设成public，但上传的文件会设成public）                                                                                                                                                                     |
+| OSS_BUCKET                  | 否  | 桶名称（minio的桶权限需要设成public或者参照[minio权限](https://blog.csdn.net/zdb1314/article/details/125287537)进行配置，阿里云和腾讯云的桶可以不用设成public，但上传的文件会设成public）                                                                                                              |
 | OSS_DOMAIN                  | 否  | aliyun oss 绑定的域名,只填域名，不要加http://。 2019.9.23后创建的bucket，需要绑定域名，不然无法预览，[绑定方法参考](https://help.aliyun.com/zh/oss/user-guide/map-custom-domain-names-5)                                                                                                     |
 | AUTHORIZE_CODE              | 是  | 授权码，获取方式，请看后面                                                                                                                                                                                                                                         |
 | APP_TITLE                   | 否  | 自定义网站标题，需要获得永久授权后才会生效                                                                                                                                                                                                                                 |
@@ -153,6 +153,7 @@
 | FILE_UPLOAD_FROM_BROWSER    | 否  | 自定义文件上传接口填了key后，如果需要在浏览器直接把文件上传到该接口，则需要把这参数值设成：1。设置后，会把鉴权key暴露在浏览器端，有风险，但在文件服务器跟应用不是同一个服务器时，可以节省服务器带宽资源。                                                                                                                                              |
 | ALWAYS_DISPLAY_MODEL        | 否  | 如果需要在模型选择那边常显模型名称，则把该参数设成1。                                                                                                                                                                                                                           |
 | SEND_IMG_URL                | 否  | vision或claude模型，发送图片时，默认发送base64，如果需要发送url，则把该参数设成1，前提是配置了文件存储功能，且模型那边能识别url并通过url得到图片。发送url可以节省服务器带宽。                                                                                                                                                |
+| DEFAULT_SUMMARIZE_MODEL     | 否  | 总结标题的默认模型，设置后，无论使用哪个模型聊天，都会使用该参数指定的模型进行总结。                                                                                                                                                                                                            |
 
 ### 需要准备什么
 - 1.若干个二级域名，本应用需要一个，另外代理discord，openai，aliyun-oss等，都需要域名
@@ -168,14 +169,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.12
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.13
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.12
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.13
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
