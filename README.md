@@ -5,11 +5,11 @@
 
 ### 版本
 #### 无后台：
-- 更新日期：2024.03.29
+- 更新日期：2024.03.30
 - 版本号：
-  - 3.7.13，完整功能，需要授权码
-  - 3.7.13-arm，arm64版，完整功能，需要授权码
-  - 3.7.13-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
+  - 3.7.14，完整功能，需要授权码
+  - 3.7.14-arm，arm64版，完整功能，需要授权码
+  - 3.7.14-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
 
 
 ### 特性（无后台版本）：
@@ -154,6 +154,7 @@
 | ALWAYS_DISPLAY_MODEL        | 否  | 如果需要在模型选择那边常显模型名称，则把该参数设成1。                                                                                                                                                                                                                           |
 | SEND_IMG_URL                | 否  | vision或claude模型，发送图片时，默认发送base64，如果需要发送url，则把该参数设成1，前提是配置了文件存储功能，且模型那边能识别url并通过url得到图片。发送url可以节省服务器带宽。                                                                                                                                                |
 | DEFAULT_SUMMARIZE_MODEL     | 否  | 总结标题的默认模型，设置后，无论使用哪个模型聊天，都会使用该参数指定的模型进行总结。                                                                                                                                                                                                            |
+| HIDE_USER_API_URL           | 否  | 如果需要隐藏用户自定义接口地址，则把该参数设置为1。                                                                                                                                                                                                                            |
 
 ### 需要准备什么
 - 1.若干个二级域名，本应用需要一个，另外代理discord，openai，aliyun-oss等，都需要域名
@@ -169,14 +170,14 @@
 ### 启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.13
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.14
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.13
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.14
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
