@@ -49,7 +49,7 @@
   - 11.**支持所有模型上传文件**，非vision或者claude模型，则只会把文件链接拼在内容里发出去，至于能否解析，要看对应模型能力。
   - 12.**增加实时展示用户输入内容的token数量**
 
-### 特性（社区版）
+### 特性（社区版，无后台）
 - 免费使用，直接通过docker拉取镜像启动即可使用，需要把命令里的版本号改成社区版本号，不需要授权码。
 - 在无后台版本基础上，限制了一些功能，包括：
   - 1.上传文件只支持minio存储。
@@ -60,18 +60,41 @@
   - 5.不支持修改网站标题、副标题、icon。
 
 ### 特性（有后台版本）：
-- 1.包含无后台版本的完整功能。
-- 2.正在接入后端管理，目前已实现公众号扫码登录，待其它功能实现后发布。
+- **一**. **包含无后台版本的完整功能**。
+- **二**. **账号注册与登录**，任选一种即可：
+  - 1.**支持手机号注册登录**。
+  - 2.**支持邮箱注册登录**。
+  - 3.**支持微信公众号扫码关注授权登录**。
+- **三**. **AI管理**：
+  - 1.**AI平台管理**，支持添加不同平台，设置不同的接口地址。
+  - 2.**模型管理**，支持添加不同平台模型，注意：gpt-4-gizmo-*，别删别改！！！这是gpts应用系列模型，判断套餐内容的时候是用通配符匹配的，也就是所有gpts模型都是判断这个。
+  - 3.**ApiKey管理**，可以为key单独设置接口地址，如果设置了，则会以这边设置的为准，没设置则以平台管理那边设置的为准。可以添加适用的模型，没设置就是该平台下的通用key，如果设置了，用户请求时，会优先使用适用模型的key。
+- **四**. **套餐管理**：
+  - 1.**套餐资源**：套餐内包含的基础资源，可以添加可用模型，设置计费模式、数量限制等。数量限制如果设成-1则表示无限制。注意：套餐资源的数量限制，只是限制用户发送的token、字数、次数，不会统计和限制平台回复的内容。
+  - 2.**套餐信息**：可以添加多个套餐资源，设置计费周期、价格、数量倍数。用户购买该套餐后，拥有的数量是：套餐资源的数量限制 * 数量倍数，比如 套餐资源里设置token数量限制是1000，套餐信息这个设置token倍数是10，则用户得到 1000 * 10 = 10000 token。如果套餐的计费模式是：用完即止，则用户购买的该套餐，默认有效期是2年。
+  - 3.**套餐兑换码**：可以为套餐生成兑换码，当没使用微信支付时，可以让用户通过其它方式把钱付给你，你把兑换码给用户，用户在聊天套餐列表那边进行兑换。
+- **五**. **订单管理**：
+  - 1.**订单信息**：包含微信支付和兑换码生成的订单。
+- **六**. **会员管理**：
+  - 1.**会员信息**：支持手动新增会员
+  - 2.**会员套餐**：用户的套餐信息，用户购买同一个套餐，有效期是累加的，比如套餐A，有效期一个月，用户已经购买了一个套餐A，过期时间是5月30号，则他在5月30号前再次购买套餐A，则他新套餐的有效期是到6月30号。
+- **七**. **会话管理**，目前只是会把用户聊天的会话主题和消息保存到后台，不会从后台拉取：
+  - 1.**会话主题**：用户聊天的主题。
+  - 2.**会话消息**：用户聊天每个主题下的消息记录。
+- **八**. **支付**：
+  - 1.**微信支付**：需要申请微信商户，开通微信支付。因为需要关联appId，所以还需要申请小程序或者公众号。
+
+### SpringCloud微服务版
+本后端项目基于SpringCloud开发，天生就是微服务，但是微服务需要消耗更多的服务器资源，部署和配置也更加复杂，如有需要，可以联系咨询。
+  
 
 ### 后续待实现
-- 【doing】1.接入后端管理，增加账号登录功能。
-- 【     】2.权限管理，角色分配，绘画权限，知识库权限，聊天记录保存、查阅等。
-- 【     】3.微信扫码、企微免登。
-- 【     】4.联网搜索。
-- 【     】5.function call。
-- 【     】6.待思考。。。
+- 【     】1.接入mj-plus。
+- 【     】2.联网搜索。
+- 【     】3.function call。
+- 【     】4.待思考。。。
 
-### 示例图片
+### 无后台版本示例图片
 <div style="display: flex;flex-direction: column">
   <div style="display: flex;flex-direction: row;">
     <img src="./images/img1.png" width="49%">
@@ -99,8 +122,44 @@
   </div>
 </div>
 
+### 有后台版本示例图片
+<div style="display: flex;flex-direction: column">
+  <div style="display: flex;flex-direction: row;">
+    <img src="./images/backend/img1.png" width="49%">
+    <img src="./images/backend/img2.png" width="49%">
+  </div>
+  <div style="display: flex;flex-direction: row">
+    <img src="./images/backend/img3.png" width="49%">
+    <img src="./images/backend/img4.png" width="49%">
+  </div>
+  <div style="display: flex;flex-direction: row">
+    <img src="./images/backend/img5.png" width="49%">
+    <img src="./images/backend/img6.png" width="49%">
+  </div>
+  <div style="display: flex;flex-direction: row">
+    <img src="./images/backend/img7.png" width="49%">
+    <img src="./images/backend/img8.png" width="49%">
+  </div>
+  <div style="display: flex;flex-direction: row">
+    <img src="./images/backend/img9.png" width="49%">
+    <img src="./images/backend/img10.png" width="49%">
+  </div>
+  <div style="display: flex;flex-direction: row">
+    <img src="./images/backend/img11.png" width="49%">
+    <img src="./images/backend/img12.png" width="49%">
+  </div>
+<div style="display: flex;flex-direction: row">
+    <img src="./images/backend/img13.png" width="49%">
+    <img src="./images/backend/img14.png" width="49%">
+  </div>
+<div style="display: flex;flex-direction: row">
+    <img src="./images/backend/img15.png" width="49%">
+    <img src="./images/backend/img16.png" width="49%">
+  </div>
+</div>
 
-### 增加的参数
+
+### 参数说明
 #### 兼容原版[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)所有参数，
 | 参数名称                        | 必填 | 说明                                                                                                                                                           |
 |-----------------------------|----|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -167,7 +226,7 @@
 - 8.使用stable-diffusion功能需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，详细启动方式请到对应项目查看：https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API
 - 9.腾讯云oss跨域问题，[可以参考](https://cloud.tencent.com/document/product/436/13318)
 
-### 启动
+### 无后台版本部署和启动
 ##### 1.拉取镜像
 ```shell
 docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.14
@@ -183,12 +242,31 @@ docker run -d -p 3000:3000 \
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
 - 其它参数也是通过增加 -e 然后跟上参数名称和参数值， \ 是换行拼接。
 
+### 有后台版本部署和启动
+##### 1.下载docker-compose.yml文件，文件在本项目 /docker/with-backend/目录下
+```shell
+wget https://github.com/vual/ChatGPT-Next-Web-Pro/tree/main/docker/with-backend/docker-compose.yml
+```
+##### 2.编辑docker-compose.yml文件，根据需要，修改里面的环境变量
+
+##### 3.拉取最新镜像，并启动，如果遇到无法执行 docker-compose 命令，则需要先安装 docker-compose
+```shell
+docker compose pull
+docker compose up -d
+```
+首次启动建议不加 -d ，看看是否有报错，没报错后，结束运行，并加上 -d 重新启动
+##### 详细部署说明请看[后台版本部署步骤](./docs/后台版本部署步骤.md)
+##### nginx配置参考[nginx参考配置](./docs/nginx.conf)
+
 ### 授权码价格
 #### 授权绑定你自己的二级域名，绑定后，只能通过绑定的域名访问！！！也不能更改绑定的域名！！！也可以绑定公网IP，但不建议。试用可以绑定内网IP。
 #### 无后台版本（后续更新也不会接入后台相关功能）：
 - 绑定1个域名或IP，限时特惠：￥189
 - 绑定2个域名或IP，限时特惠：￥339
 - 绑定3个域名或IP，限时特惠：￥469
+
+#### 有后台版本价格
+- 一个授权码，绑定用户端和管理端域名，限时特惠：￥599
 
 （付费即永久授权，授权不包含源码。可以先试用，试用不收费。）
 

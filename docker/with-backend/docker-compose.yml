@@ -1,0 +1,128 @@
+version: "3"
+services:
+  # 用户聊天的web服务
+  annyun-chat-web:
+    container_name: annyun-chat-web
+    image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-chat-web:latest
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      # 本项目授权码，必填，加微信 822784588 获取
+      AUTHORIZE_CODE: xxxxxxxxx
+      # 登录页默认tab，1 登录，2 注册，3 微信
+      DEFAULT_ACTIVE_TAB: 1
+      # openai key，这边可以不填，以后台设置的为准
+      # OPENAI_API_KEY: sk-88888888
+      # openai接口地址，这边可以不填，以后台设置的为准
+      # BASE_URL:
+      # 该参数不可用了，模型以后台设置的为准，因此，fastgpt知识库功能也暂时不可用
+      # CUSTOM_MODELS:
+      # 隐藏用户自定义openai接口设置
+      HIDE_USER_API_URL: 1
+      # 隐藏用户自定义mj接口设置
+      HIDE_MIDJOURNEY_SETTING: 1
+      # 隐藏用户自定义sd接口设置
+      HIDE_SD_SETTING: 1
+      # vision或claude模型，发送图片时，发送图片url，去掉该参数，默认发送base64
+      SEND_IMG_URL: 1
+      # 其它参数请在项目文档里查看说明
+    networks:
+      - spring_cloud_default
+  # 后台管理的web服务
+  annyun-admin-web:
+    container_name: annyun-admin-web
+    image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-admin-web:latest
+    restart: always
+    ports:
+      - 8888:80
+    environment:
+      VITE_IS_MICRO: false
+    networks:
+      - spring_cloud_default
+  # 后台管理的server服务
+  annyun-admin:
+    container_name: annyun-admin
+    image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-admin:latest
+    restart: always
+    ports:
+      - 9999:9999
+    environment:
+      # 本项目授权码，必填，加微信 822784588 获取
+      AUTHORIZE_CODE: xxxxxxxx
+      # 邮件发送配置， SMTP 服务器地址
+      #SPRING_MAIL_HOST:
+      # 邮件发送配置，端口号 465或 587，具体在自己邮箱设置里看（QQ邮箱发送邮件仅支持587端口协议）
+      #SPRING_MAIL_PORT: 587
+      # 邮件发送配置，发送者邮箱，已开通POP3/SMTP服务的邮箱
+      #SPRING_MAIL_USERNAME:
+      # 邮件发送配置，配置邮箱密码或者授权码，有些邮箱是填密码，邮箱邮箱只能填授权码，具体在自己邮箱设置里看
+      #SPRING_MAIL_PASSWORD:
+      # 邮件发送配置，发送者名称，用户收到邮件显示的名称，比如：ChatGPT-Next-Web-Pro
+      #SPRING_MAIL_FROM:
+      # 短信发送配置，短信发送模板id
+      #SMS_TEMPLATE_ID:
+      # 短信发送配置，accesskey
+      #SMS_ACCESSKEY:
+      # 短信发送配置，secretkey
+      #SMS_SECRETKEY:
+      # 短信发送配置，短信签名
+      #SMS_SIGN_NAME:
+      # 微信公众号配置，公众号appId
+      #WX_MP_CONFIGS_APP_ID:
+      # 微信公众号配置，公众号密钥
+      #WX_MP_CONFIGS_SECRET:
+      # 微信公众号配置，公众号token
+      #WX_MP_CONFIGS_TOKEN:
+      # 微信公众号配置，公众号aeskey
+      #WX_MP_CONFIGS_AESKEY:
+      # 微信公众号配置，用户关注公众号时，发送给用户授权登录的地址，即用户聊天前端的地址，比如：https://ai.annyun.cn
+      #WX_MP_CONFIGS_WEB_CLIENT_URL:
+      # 微信支付配置，关联的公众号或者小程序appId
+      #WX_PAY_APP_ID:
+      # 微信支付配置，微信商户号
+      #WX_PAY_MCH_ID:
+      # 微信支付配置，微信支付api v3 key
+      #WX_PAY_APIV3_KEY:
+      # 微信支付配置，微信支付证书序列号
+      #WX_PAY_CERT_SERIAL_NO:
+      # 微信支付配置，微信支付证书apiclient_key.pem存放路径，请放在 /data/annyun/cert/ 目录下
+      #WX_PAY_PRIVATE_KEY_PATH: /data/annyun/cert/apiclient_key.pem
+      # 微信支付配置，微信支付证书apiclient_cert.pem存放路径，请放在 /data/annyun/cert/ 目录下
+      #WX_PAY_PRIVATE_CERT_PATH: /data/annyun/cert/apiclient_cert.pem
+      # 微信支付回调地址, 即后端管理的地址，比如：https://admin.annyun.cn
+      #WX_PAY_NOTIFY_URL:
+    volumes:
+      - /data/annyun/:/data/annyun
+    networks:
+      - spring_cloud_default
+  # 数据库
+  annyun-mysql:
+    container_name: annyun-mysql
+    image: mysql:8.0.36
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - /data/annyun/mysql:/var/lib/mysql
+      - /data/annyun/logs/mysql:/var/log/mysql
+    networks:
+      - spring_cloud_default
+  # redis
+  annyun-redis:
+    container_name: annyun-redis
+    hostname: annyun-redis
+    image: redis:7.2.4
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      - spring_cloud_default
+
+networks:
+  spring_cloud_default:
+    driver: bridge
+
