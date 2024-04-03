@@ -9,9 +9,9 @@ services:
       - 3000:3000
     environment:
       # 本项目授权码，必填，加微信 822784588 获取
-      AUTHORIZE_CODE: xxxxxxxxx
+      AUTHORIZE_CODE: xxxxxxxx
       # 登录页默认tab，1 登录，2 注册，3 微信
-      DEFAULT_ACTIVE_TAB: 1
+      #DEFAULT_ACTIVE_TAB: 1
       # openai key，这边可以不填，以后台设置的为准
       # OPENAI_API_KEY: sk-88888888
       # openai接口地址，这边可以不填，以后台设置的为准
