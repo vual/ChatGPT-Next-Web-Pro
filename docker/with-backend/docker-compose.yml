@@ -25,7 +25,7 @@ services:
       # 隐藏用户自定义sd接口设置
       HIDE_SD_SETTING: 1
       # vision或claude模型，发送图片时，发送图片url，去掉该参数，默认发送base64
-      SEND_IMG_URL: 1
+      #SEND_IMG_URL: 1
       # 其它参数请在项目文档里查看说明
     networks:
       - spring_cloud_default
