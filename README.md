@@ -11,6 +11,13 @@
   - 3.7.14-arm，arm64版，完整功能，需要授权码
   - 3.7.14-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
 
+#### 有后台版本：
+- 更新日期：2024.04.03
+- 版本号：
+  - 1.0.0
+- 演示地址：https://ai.annyun.cn/
+  用户端地址：https://admin.annyun.cn/ , 账号：annyun，密码：123456
+
 
 ### 特性（无后台版本）：
 - **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.03.29
