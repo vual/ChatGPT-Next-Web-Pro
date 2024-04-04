@@ -6,7 +6,7 @@ services:
     image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-chat-web:latest
     restart: always
     ports:
-      - 3000:3000
+      - 3000:3000 # 映射端口，如果3000被占用了，则可以改成其它的，比如3003:3000，只能改前面的前面那个，后面的3000是容器内部的，不能改
     environment:
       # 本项目授权码，必填，加微信 822784588 获取
       AUTHORIZE_CODE: xxxxxxxx
@@ -35,7 +35,7 @@ services:
     image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-admin-web:latest
     restart: always
     ports:
-      - 8888:80
+      - 8888:80 # 映射端口，如果8888被占用了，则可以改成其它的，比如8899:80，只能改前面的前面那个，后面的80是容器内部的，不能改
     environment:
       VITE_IS_MICRO: false
     networks:
@@ -46,10 +46,24 @@ services:
     image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-admin:latest
     restart: always
     ports:
-      - 9999:9999
+      - 9999:9999 # 映射端口，如果9999被占用了，则可以改成其它的，比如9988:9999，只能改前面的前面那个，后面的9999是容器内部的，不能改
     environment:
       # 本项目授权码，必填，加微信 822784588 获取
       AUTHORIZE_CODE: xxxxxxxx
+      # redis的连接地址，一般情况不要改，如果你要连自己已经存在的redis，则根据实际情况填
+      #ANNYUN_REDIS_HOST: annyun-redis
+      # redis端口，一般不改，如果改了ANNYUN_REDIS_HOST，且对应的redis端口不是6379，则改成实际的端口
+      #ANNYUN_REDIS_PORT: 6379
+      # redis使用的数据库索引，一般不改，如果改了ANNYUN_REDIS_HOST，怕跟别的项目冲突，则改成其它的
+      #ANNYUN_REDIS_DATABASE: 9
+      # 数据库连接地址，一般不改，如果要连已经存在的mysql，则根据实际情况填
+      #ANNYUN_MYSQL_HOST: annyun-mysql
+      # mysql数据库端口，一般不改，如果改了ANNYUN_MYSQL_HOST，且对应的mysql端口不是3306，则改成实际的端口
+      #ANNYUN_MYSQL_PORT: 3306
+      # mysql用户名，一般不改，如果改了ANNYUN_MYSQL_HOST，且对应用户名不是root，则改成实际的
+      #ANNYUN_MYSQL_USERNAME: root
+      # mysql密码，一般不改，如果改了ANNYUN_MYSQL_HOST，或者改了annyun-mysql下的MYSQL_ROOT_PASSWORD，则改成实际的
+      #ANNYUN_MYSQL_PASSWORD: root
       # 邮件发送配置， SMTP 服务器地址
       #SPRING_MAIL_HOST:
       # 邮件发送配置，端口号 465或 587，具体在自己邮箱设置里看（QQ邮箱发送邮件仅支持587端口协议）
@@ -102,7 +116,7 @@ services:
     image: mysql:8.0.36
     restart: always
     ports:
-      - 3306:3306
+      - 3306:3306 # 映射端口，如果3306被占用了，则可以改成其它的，比如3307:3306，只能改前面的前面那个，后面的3306是容器内部的，不能改
     environment:
       MYSQL_ROOT_HOST: "%"
       MYSQL_ROOT_PASSWORD: root
@@ -118,7 +132,7 @@ services:
     image: redis:7.2.4
     restart: always
     ports:
-      - 6379:6379
+      - 6379:6379 # 映射端口，如果6379被占用了，则可以改成其它的，比如6380:6379，只能改前面的前面那个，后面的6379是容器内部的，不能改
     networks:
       - spring_cloud_default
 
