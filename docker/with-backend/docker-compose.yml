@@ -50,13 +50,13 @@ services:
     environment:
       # 本项目授权码，必填，加微信 822784588 获取
       AUTHORIZE_CODE: xxxxxxxx
-      # redis的连接地址，一般情况不要改，如果你要连自己已经存在的redis，则根据实际情况填
+      # redis的连接地址，一般情况不要改，如果你要连自己已经存在的redis，则根据实际情况填IP或容器名称
       #ANNYUN_REDIS_HOST: annyun-redis
       # redis端口，一般不改，如果改了ANNYUN_REDIS_HOST，且对应的redis端口不是6379，则改成实际的端口
       #ANNYUN_REDIS_PORT: 6379
       # redis使用的数据库索引，一般不改，如果改了ANNYUN_REDIS_HOST，怕跟别的项目冲突，则改成其它的
       #ANNYUN_REDIS_DATABASE: 9
-      # 数据库连接地址，一般不改，如果要连已经存在的mysql，则根据实际情况填
+      # 数据库连接地址，一般不改，如果要连已经存在的mysql，则根据实际情况填IP或容器名称
       #ANNYUN_MYSQL_HOST: annyun-mysql
       # mysql数据库端口，一般不改，如果改了ANNYUN_MYSQL_HOST，且对应的mysql端口不是3306，则改成实际的端口
       #ANNYUN_MYSQL_PORT: 3306
