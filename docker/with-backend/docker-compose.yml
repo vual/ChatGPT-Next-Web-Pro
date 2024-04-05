@@ -66,8 +66,10 @@ services:
       #ANNYUN_MYSQL_PASSWORD: root
       # 邮件发送配置， SMTP 服务器地址
       #SPRING_MAIL_HOST:
-      # 邮件发送配置，端口号 465或 587，具体在自己邮箱设置里看（QQ邮箱发送邮件仅支持587端口协议）
-      #SPRING_MAIL_PORT: 587
+      # 邮件发送配置，端口号465、587、994，已知qq邮箱465，hotmail邮箱587，163邮箱994
+      #SPRING_MAIL_PORT: 465
+      # 安全协议，smtp、smtps，默认 smtps，已知qq邮箱或者是163邮箱需要设置成smtps，hotmail邮箱smtp，其他请自测
+      #SPRING_MAIL_PROTOCOL: smtps
       # 邮件发送配置，发送者邮箱，已开通POP3/SMTP服务的邮箱
       #SPRING_MAIL_USERNAME:
       # 邮件发送配置，配置邮箱密码或者授权码，有些邮箱是填密码，邮箱邮箱只能填授权码，具体在自己邮箱设置里看
