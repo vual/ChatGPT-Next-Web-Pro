@@ -135,6 +135,10 @@ services:
     restart: always
     ports:
       - 6379:6379 # 映射端口，如果6379被占用了，则可以改成其它的，比如6380:6379，只能改前面的前面那个，后面的6379是容器内部的，不能改
+    volumes:
+      - /data/annyun/redis/data:/data
+      - /data/annyun/redis/logs:/logs
+      - /data/annyun/redis/redis.conf:/usr/local/etc/redis/redis.conf
     networks:
       - spring_cloud_default
 
