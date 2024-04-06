@@ -121,6 +121,7 @@ services:
       - 3306:3306 # 映射端口，如果3306被占用了，则可以改成其它的，比如3307:3306，只能改前面的前面那个，后面的3306是容器内部的，不能改
     environment:
       MYSQL_ROOT_HOST: "%"
+      # 数据库的密码，要改只能第一次启动前就改，如果改了这里，记得一并修改annyun-admin下的ANNYUN_MYSQL_PASSWORD
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - /data/annyun/mysql:/var/lib/mysql
