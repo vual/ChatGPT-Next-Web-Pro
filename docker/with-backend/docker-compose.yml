@@ -106,8 +106,20 @@ services:
       #WX_PAY_PRIVATE_KEY_PATH: /data/annyun/cert/apiclient_key.pem
       # 微信支付配置，微信支付证书apiclient_cert.pem存放路径，请放在 /data/annyun/cert/ 目录下
       #WX_PAY_PRIVATE_CERT_PATH: /data/annyun/cert/apiclient_cert.pem
-      # 微信支付回调地址, 即后端管理的地址，比如：https://admin.annyun.cn
+      # 微信支付配置，微信支付回调地址, 即后端管理的地址，比如：https://admin.annyun.cn
       #WX_PAY_NOTIFY_URL:
+      # 易支付配置，商户id
+      #EASY_PAY_PID:
+      # 易支付配置，密钥
+      #EASY_PAY_KEY:
+      # 易支付配置，api创建支付订单的接口地址
+      #EASY_PAY_API_URL:
+      # 易支付配置，支付结果通知回调地址，即后端管理的地址，比如：https://admin.annyun.cn
+      #EASY_PAY_NOTIFY_URL:
+      # 易支付配置，页面跳转通知地址，可以不填，可以填聊天前端地址，比如：https://ai.annyun.cn
+      #EASY_PAY_RETURN_URL:
+      # 易支付配置，支付设备，默认pc，有些易支付平台需要传jump，才会返回支付链接，
+      #EASY_PAY_DEVICE: pc
     volumes:
       - /data/annyun/:/data/annyun
     networks:
