@@ -94,6 +94,8 @@ services:
       #WX_MP_CONFIGS_AESKEY:
       # 微信公众号配置，用户关注公众号时，发送给用户授权登录的地址，即用户聊天前端的地址，比如：https://ai.annyun.cn
       #WX_MP_CONFIGS_WEB_CLIENT_URL:
+      # 微信公众号配置，关注就直接登录，默认false，如果只需要让用户关注就登录，不需要获取用户头像昵称等信息，则设成true
+      #WX_MP_CONFIGS_DIRECT_LOGIN: false
       # 微信支付配置，关联的公众号或者小程序appId
       #WX_PAY_APP_ID:
       # 微信支付配置，微信商户号
