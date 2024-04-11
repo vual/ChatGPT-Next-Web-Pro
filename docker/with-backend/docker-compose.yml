@@ -76,13 +76,13 @@ services:
       #SPRING_MAIL_PASSWORD:
       # 邮件发送配置，发送者名称，用户收到邮件显示的名称，比如：ChatGPT-Next-Web-Pro
       #SPRING_MAIL_FROM:
-      # 短信发送配置，短信发送模板id
+      # 阿里云短信发送配置，短信发送模板id
       #SMS_TEMPLATE_ID:
-      # 短信发送配置，accesskey
+      # 阿里云短信发送配置，accesskey
       #SMS_ACCESSKEY:
-      # 短信发送配置，secretkey
+      # 阿里云短信发送配置，secretkey
       #SMS_SECRETKEY:
-      # 短信发送配置，短信签名
+      # 阿里云短信发送配置，短信签名
       #SMS_SIGN_NAME:
       # 微信公众号配置，公众号appId
       #WX_MP_CONFIGS_APP_ID:
