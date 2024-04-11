@@ -114,7 +114,7 @@ services:
       #EASY_PAY_PID:
       # 易支付配置，密钥
       #EASY_PAY_KEY:
-      # 易支付配置，api创建支付订单的接口地址
+      # 易支付配置，api创建支付订单的接口地址，完整的接口地址
       #EASY_PAY_API_URL:
       # 易支付配置，支付结果通知回调地址，即后端管理的地址，比如：https://admin.annyun.cn
       #EASY_PAY_NOTIFY_URL:
