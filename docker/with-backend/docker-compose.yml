@@ -82,7 +82,7 @@ services:
       #SMS_ACCESSKEY:
       # 阿里云短信发送配置，secretkey
       #SMS_SECRETKEY:
-      # 阿里云短信发送配置，短信签名
+      # 阿里云短信发送配置，短信签名，签名必须是字母，汉字不行。
       #SMS_SIGN_NAME:
       # 微信公众号配置，公众号appId
       #WX_MP_CONFIGS_APP_ID:
