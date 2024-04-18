@@ -78,6 +78,8 @@ services:
       #SPRING_MAIL_PASSWORD:
       # 邮件发送配置，发送者名称，用户收到邮件显示的名称，比如：ChatGPT-Next-Web-Pro
       #SPRING_MAIL_FROM:
+      # 邮件发送配置，邮箱白名单，可以设置允许注册的邮箱后缀，多个请用英文逗号分割，比如：qq.com,163.com,hotmail.com
+      #MAIL_WHITE_LIST:
       # 阿里云短信发送配置，短信发送模板id
       #SMS_TEMPLATE_ID:
       # 阿里云短信发送配置，accesskey
