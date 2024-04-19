@@ -5,16 +5,16 @@
 
 ### 版本
 #### 无后台：
-- 更新日期：2024.04.12
+- 更新日期：2024.04.19
 - 版本号：
-  - 3.7.15，完整功能，需要授权码
-  - 3.7.15-arm，arm64版，完整功能，需要授权码
-  - 3.7.15-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
+  - 3.7.16，完整功能，需要授权码
+  - 3.7.16-arm，arm64版，完整功能，需要授权码
+  - 3.7.16-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
 - 演示地址：
   - 参考有后台版本的用户端，界面和功能大体一样，没有登录、套餐列表、用户中心，没有管理端。
 
 #### 有后台版本：
-- 更新日期：2024.04.18
+- 更新日期：2024.04.19
 - 版本号：
   - latest
 - 演示地址：
@@ -23,7 +23,7 @@
 
 
 ### 特性（无后台版本）：
-- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.04.12
+- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.04.19
 - **二**. **文件上传和存储**，接入OSS，也支持自定义文件上传接口，配置详见参数说明，**强烈建议配置该功能，可以让下面很多功能更好用**，以下任选一种即可：
   - 1.**阿里云OSS**，国外那些服务有可能访问不了国内的OSS，建议国内和国际版都测试下。
   - 2.**腾讯云COS**，同上，也是OSS。
@@ -257,14 +257,14 @@
 ### 无后台版本部署和启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.15
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.16
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.15
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.16
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
