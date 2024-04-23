@@ -18,7 +18,7 @@ services:
       # OPENAI_API_KEY: sk-88888888
       # openai接口地址，这边可以不填，以后台设置的为准
       # BASE_URL:
-      # 该参数不可用了，模型以后台设置的为准，因此，fastgpt知识库功能也暂时不可用
+      # 该参数不可用了，模型以后台设置的为准，对接fastgpt，请看文档里的说明。
       # CUSTOM_MODELS:
       # 隐藏用户自定义openai接口设置
       HIDE_USER_API_URL: 1
