@@ -14,6 +14,8 @@ services:
       #DEFAULT_ACTIVE_TAB: 1
       # 如果要禁用注册，则设成 2，需要配合annyun-admin里的ANNYUN_DISABLE_REGISTER=true一起使用。如果要禁用微信，则设成 3，如果都要禁用则设成 2,3
       #DISABLE_LOGIN_TAB:
+      # 如果需要登录发送验证码，不使用密码，则设成1
+      #LOGIN_BY_SEND_CODE:
       # openai key，这边可以不填，以后台设置的为准
       # OPENAI_API_KEY: sk-88888888
       # openai接口地址，这边可以不填，以后台设置的为准
