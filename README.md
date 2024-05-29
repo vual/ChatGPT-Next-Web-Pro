@@ -23,7 +23,7 @@
 
 
 ### 特性（无后台版本）：
-- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.05.09
+- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.05.17
 - **二**. **文件上传和存储**，接入OSS，也支持自定义文件上传接口，配置详见参数说明，**强烈建议配置该功能，可以让下面很多功能更好用**，以下任选一种即可：
   - 1.**阿里云OSS**，国外那些服务有可能访问不了国内的OSS，建议国内和国际版都测试下。
   - 2.**腾讯云COS**，同上，也是OSS。

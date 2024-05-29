@@ -54,6 +54,7 @@ services:
     environment:
       # 本项目授权码，必填，加微信 822784588 获取
       AUTHORIZE_CODE: xxxxxxxx
+      #----------以下参数一般不改动，也可以不去掉前面的#号，程序里默认值就是对应的值，如果遇到端口冲突或者你清楚这些配置并想改成其它的，再根据实际情况改动
       # redis的连接地址，一般情况不要改，如果你要连自己已经存在的redis，则根据实际情况填IP或容器名称
       #ANNYUN_REDIS_HOST: annyun-redis
       # redis端口，一般不改，如果改了ANNYUN_REDIS_HOST，且对应的redis端口不是6379，则改成实际的端口
@@ -62,12 +63,13 @@ services:
       #ANNYUN_REDIS_DATABASE: 9
       # 数据库连接地址，一般不改，如果要连已经存在的mysql，则根据实际情况填IP或容器名称
       #ANNYUN_MYSQL_HOST: annyun-mysql
-      # mysql数据库端口，一般不改，如果改了ANNYUN_MYSQL_HOST，且对应的mysql端口不是3306，则改成实际的端口
+      # mysql数据库端口，一般不改，如果改了前面那个参数ANNYUN_MYSQL_HOST，且对应的mysql端口不是3306，则改成实际的端口
       #ANNYUN_MYSQL_PORT: 3306
-      # mysql用户名，一般不改，如果改了ANNYUN_MYSQL_HOST，且对应用户名不是root，则改成实际的
+      # mysql用户名，一般不改，如果改了前面那个参数ANNYUN_MYSQL_HOST，且对应用户名不是root，则改成实际的
       #ANNYUN_MYSQL_USERNAME: root
-      # mysql密码，一般不改，如果改了ANNYUN_MYSQL_HOST，或者改了annyun-mysql下的MYSQL_ROOT_PASSWORD，则改成实际的
+      # mysql密码，一般不改，如果改了前面那个参数ANNYUN_MYSQL_HOST，或者改了annyun-mysql下的MYSQL_ROOT_PASSWORD，则改成实际的
       #ANNYUN_MYSQL_PASSWORD: root
+      #----------以上参数一般不改动，也可以不去掉前面的#号，程序里默认值就是对应的值，如果遇到端口冲突或者你清楚这些配置并想改成其它的，再根据实际情况改动
       # 邮件发送配置， SMTP 服务器地址
       #SPRING_MAIL_HOST:
       # 邮件发送配置，端口号465、587、994，已知qq邮箱465，hotmail邮箱587，163邮箱994
