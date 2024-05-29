@@ -148,7 +148,7 @@ services:
       - /data/annyun/:/data/annyun
     networks:
       - spring_cloud_default
-  # 数据库
+  # 数据库，如果你需要连已经部署了mysql，这一块可以去掉，然后修改annyun-admin底下对应mysql数据库的环境变量
   annyun-mysql:
     container_name: annyun-mysql
     image: mysql:8.0.36
@@ -164,7 +164,7 @@ services:
       - /data/annyun/logs/mysql:/var/log/mysql
     networks:
       - spring_cloud_default
-  # redis
+  # redis，如果你需要连已经部署了redis，这一块可以去掉，然后修改annyun-admin底下对应redis的环境变量
   annyun-redis:
     container_name: annyun-redis
     hostname: annyun-redis
