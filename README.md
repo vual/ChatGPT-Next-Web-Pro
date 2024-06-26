@@ -8,16 +8,16 @@
 
 ### 版本
 #### 无后台：
-- 更新日期：2024.06.14
+- 更新日期：2024.06.26
 - 版本号：
-  - 3.7.22，完整功能，需要授权码
+  - 3.7.23，完整功能，需要授权码
   - 3.7.21-arm，arm64版，完整功能，需要授权码
-  - 3.7.22-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
+  - 3.7.23-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
 - **Demo演示地址**：
   - 参考下面有后台版本的用户端，有一些界面和功能差异，没有登录、套餐列表、用户中心，没有管理端。
 
 #### 有后台版本：
-- 更新日期：2024.06.14
+- 更新日期：2024.06.26
 - 版本号：
   - latest
 - **Demo演示地址**：
@@ -26,7 +26,7 @@
 
 
 ### 特性（无后台版本）：
-- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.06.14
+- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.06.26
 - **二**. **文件上传和存储**，接入OSS，也支持自定义文件上传接口，配置详见参数说明，**强烈建议配置该功能，可以让下面很多功能更好用**，以下任选一种即可：
   - 1.**阿里云OSS**，国外那些服务有可能访问不了国内的OSS，建议国内和国际版都测试下。
   - 2.**腾讯云COS**，同上，也是OSS。
@@ -223,45 +223,47 @@
 | DEFAULT_MODEL               | 否  | 自定义默认模型                                                                                                                                                        |
 
 ### 本项目新增参数
-| 参数名称                         | 必填 | 说明                                                                                                                                                                                                                                                    |
-|------------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AUTHORIZE_CODE               | 是  | 本项目授权码，启动就需要有授权码，不然无法启动，获取方式，请看后面                                                                                                                                                                                                                     |
-| MIDJOURNEY_PROXY_URL         | 否  | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                                   |
-| MIDJOURNEY_PROXY_API_SECRET  | 否  | Midjourney代理地址接口密钥，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                               |
-| USE_MJ_IMG_SELF_PROXY        | 否  | 如果不需要自代理mj图片地址，则把该参数设成false                                                                                                                                                                                                                           |
-| REPLACE_MJURL_WITH_BASEURL   | 否  | 该参数设成1，则如果用户设置里和启动参数都没设置mj的地址和密钥，则直接把base_url和openai_api_key当作mj代理地址和密钥                                                                                                                                                                               |
-| HIDE_MIDJOURNEY_SETTING      | 否  | 如果需要隐藏Midjourney设置，则把值设成 1                                                                                                                                                                                                                            |
-| DISCORDCDN_PROXY_URL         | 否  | Discordcdn图片地址代理，不填的话，如果访问不了discordcdn，就获取不到图片                                                                                                                                                                                                        |
-| STABLE_DIFFUSION_BASE_URL    | 否  | Stable-diffusion的接口地址，需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，[开启api](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API)。如果要用该功能，必须要配置后面的OSS相关参数，因为stable-diffusion返回的是图片base64，需要有地方存图片 |
-| STABLE_DIFFUSION_TIMEOUT     | 否  | Stable-diffusion的接口超时时间，默认10分钟                                                                                                                                                                                                                        |
-| HIDE_SD_SETTING              | 否  | 是否隐藏Stable-diffusion自定义接口设置，默认不隐藏，如需隐藏，则设成 1。                                                                                                                                                                                                         |
-| OSS_TYPE                     | 否  | OSS 类型，取值( aliyun 或 tencent 或 minio )。填了代表需要上传到oss，且下面的相关参数都得填，具体看下面的参数说明                                                                                                                                                                             |
-| OSS_ENDPOINT                 | 否  | 服务器地址，aliyun例如：oss-accelerate.aliyuncs.com；tencent填Region，例如: ap-guangzhou；minio例如：192.168.2.120(这边只填ip，不需要http前缀，端口填在下面那个参数)                                                                                                                         |
-| OSS_PORT                     | 否  | type为minio，且endpoint为ip时，则需要有端口，minio有两个端口，一个管理端口，一个api端口，这里要填api端口。                                                                                                                                                                                  |
-| OSS_HTTPS                    | 否  | type为minio，根据实际情况开启，如果endpoint是ip，那一般填false。如果网站https，那minio也得要通过https访问，不然可能会出现无法预览图片的问题，[可以参考](https://blog.csdn.net/weixin_40461281/article/details/124260888)。                                                                                    |
-| OSS_ACCESS_KEY               | 否  | aliyun则填accessKeyId，tencent则填SecretId，minio则填username                                                                                                                                                                                                 |
-| OSS_SECRET_KEY               | 否  | aliyun则填accessKeySecret，tencent则填SecretKey，minio则填password                                                                                                                                                                                            |
-| OSS_BUCKET                   | 否  | 桶名称（minio的桶权限需要设成public或者参照[minio权限](https://blog.csdn.net/zdb1314/article/details/125287537)进行配置，阿里云和腾讯云的桶可以不用设成public，但上传的文件会设成public）                                                                                                              |
-| OSS_DOMAIN                   | 否  | aliyun oss 绑定的域名,只填域名，不要加http://。 2019.9.23后创建的bucket，需要绑定域名，不然无法预览，[绑定方法参考](https://help.aliyun.com/zh/oss/user-guide/map-custom-domain-names-5)                                                                                                     |
-| APP_TITLE                    | 否  | 自定义网站标题，需要获得授权后才会生效                                                                                                                                                                                                                                   |
-| APP_SUB_TITLE                | 否  | 自定义网站副标题，需要获得授权后才会生效                                                                                                                                                                                                                                  |
-| APP_ICON                     | 否  | 自定义网站浏览器标题icon，填icon图标链接，需要获得授权后才会生效                                                                                                                                                                                                                  |
-| KNOWLEDGE_BASE_URL           | 否  | fastgpt的接口根地址，比如：https://ai.fastgpt.in/api ，需配合自定义模型参 CUSTOM_MODELS                                                                                                                                                                                   |
-| CUSTOM_MODELS                | 否  | 自定义模型参数，基于原版参数拓展，兼容原版功能。通过自定义模型名称对应fastgpt里的应用，及对应key，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，只会把知识库名称传到前端，apikey不会传到用户端，只会在服务端，可以放心。                                                                                           |
-| INPUT_PLACEHOLDER            | 否  | 自定义输入框提示。                                                                                                                                                                                                                                             |
-| HIDE_VOICE_INPUT             | 否  | 如果需要屏蔽语音输入，则把该参数设成1。                                                                                                                                                                                                                                  |
-| HIDE_GPTS                    | 否  | 如果需要隐藏GPTS，则把该参数设成1。                                                                                                                                                                                                                                  |
-| FILE_UPLOAD_URL              | 否  | 自定义文件上传地址（包括上传按钮和输入框粘贴文件上传，以及画图模型返回的图片），上传时的表单参数名：file，返回的数据格式不限，但需要有文件地址，文件地址需要公网可以访问。填了这个参数，所有文件会优先上传到这个接口，没填则上传配置的OSS。                                                                                                                             |
-| FILE_UPLOAD_KEY              | 否  | 自定义文件上传接口的鉴权key，填了会在headers里增加 Authorization: "Bearer " + key，为了key的安全，填了key后，默认走服务端上传，要浏览器直接上传，则需要设置下面那个参数                                                                                                                                           |
-| FILE_UPLOAD_FROM_BROWSER     | 否  | 自定义文件上传接口填了key后，如果需要在浏览器直接把文件上传到该接口，则需要把这参数值设成：1。设置后，会把鉴权key暴露在浏览器端，有风险，但在文件服务器跟应用不是同一个服务器时，可以节省服务器带宽资源。                                                                                                                                              |
-| ALWAYS_DISPLAY_MODEL         | 否  | 如果需要在模型选择那边常显模型名称，则把该参数设成1。                                                                                                                                                                                                                           |
-| SEND_IMG_URL                 | 否  | vision或claude模型，发送图片时，默认发送base64，如果需要发送url，则把该参数设成1，前提是配置了文件存储功能，且模型那边能识别url并通过url得到图片。发送url可以节省服务器带宽。                                                                                                                                                |
-| DEFAULT_SUMMARIZE_MODEL      | 否  | 总结标题的默认模型，设置后，无论使用哪个模型聊天，都会使用该参数指定的模型进行总结。                                                                                                                                                                                                            |
-| HIDE_USER_API_URL            | 否  | 如果需要隐藏用户自定义接口地址，则把该参数设置为1。                                                                                                                                                                                                                            |
-| USE_CUSTOM_CONFIG            | 否  | 如果需默认启用用户自定义接口地址，则把该参数设置为1。                                                                                                                                                                                                                           |
-| CHAT_GEMINI_THROUGH_OPENAI   | 否  | 如果需让gemini模型走openai接口地址，则把该参数设置为1，前提是接口接收的报文格式要跟openai的一样。                                                                                                                                                                                            |
-| CHAT_CLAUDE_THROUGH_OPENAI   | 否  | 如果需让claude模型走openai接口地址，则把该参数设置为1，前提是接口接收的报文格式要跟openai的一样。                                                                                                                                                                                            |
-| ENABLE_INJECT_SYSTEM_PROMPTS | 否  | 如果需要关闭注入系统及提示信息，则把该参数设成0，默认是开启的。                                                                                                                                                                                                                      |
+| 参数名称                          | 必填 | 说明                                                                                                                                                                                                                                                    |
+|-------------------------------|----|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AUTHORIZE_CODE                | 是  | 本项目授权码，启动就需要有授权码，不然无法启动，获取方式，请看后面                                                                                                                                                                                                                     |
+| MIDJOURNEY_PROXY_URL          | 否  | Midjourney代理地址，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                                   |
+| MIDJOURNEY_PROXY_API_SECRET   | 否  | Midjourney代理地址接口密钥，详细请看[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)                                                                                                                                                               |
+| USE_MJ_IMG_SELF_PROXY         | 否  | 如果不需要自代理mj图片地址，则把该参数设成false                                                                                                                                                                                                                           |
+| REPLACE_MJURL_WITH_BASEURL    | 否  | 该参数设成1，则如果用户设置里和启动参数都没设置mj的地址和密钥，则直接把base_url和openai_api_key当作mj代理地址和密钥                                                                                                                                                                               |
+| HIDE_MIDJOURNEY_SETTING       | 否  | 如果需要隐藏Midjourney设置，则把值设成 1                                                                                                                                                                                                                            |
+| DISCORDCDN_PROXY_URL          | 否  | Discordcdn图片地址代理，不填的话，如果访问不了discordcdn，就获取不到图片                                                                                                                                                                                                        |
+| STABLE_DIFFUSION_BASE_URL     | 否  | Stable-diffusion的接口地址，需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，[开启api](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API)。如果要用该功能，必须要配置后面的OSS相关参数，因为stable-diffusion返回的是图片base64，需要有地方存图片 |
+| STABLE_DIFFUSION_TIMEOUT      | 否  | Stable-diffusion的接口超时时间，默认10分钟                                                                                                                                                                                                                        |
+| HIDE_SD_SETTING               | 否  | 是否隐藏Stable-diffusion自定义接口设置，默认不隐藏，如需隐藏，则设成 1。                                                                                                                                                                                                         |
+| OSS_TYPE                      | 否  | OSS 类型，取值( aliyun 或 tencent 或 minio )。填了代表需要上传到oss，且下面的相关参数都得填，具体看下面的参数说明                                                                                                                                                                             |
+| OSS_ENDPOINT                  | 否  | 服务器地址，aliyun例如：oss-accelerate.aliyuncs.com；tencent填Region，例如: ap-guangzhou；minio例如：192.168.2.120(这边只填ip，不需要http前缀，端口填在下面那个参数)                                                                                                                         |
+| OSS_PORT                      | 否  | type为minio，且endpoint为ip时，则需要有端口，minio有两个端口，一个管理端口，一个api端口，这里要填api端口。                                                                                                                                                                                  |
+| OSS_HTTPS                     | 否  | type为minio，根据实际情况开启，如果endpoint是ip，那一般填false。如果网站https，那minio也得要通过https访问，不然可能会出现无法预览图片的问题，[可以参考](https://blog.csdn.net/weixin_40461281/article/details/124260888)。                                                                                    |
+| OSS_ACCESS_KEY                | 否  | aliyun则填accessKeyId，tencent则填SecretId，minio则填username                                                                                                                                                                                                 |
+| OSS_SECRET_KEY                | 否  | aliyun则填accessKeySecret，tencent则填SecretKey，minio则填password                                                                                                                                                                                            |
+| OSS_BUCKET                    | 否  | 桶名称（minio的桶权限需要设成public或者参照[minio权限](https://blog.csdn.net/zdb1314/article/details/125287537)进行配置，阿里云和腾讯云的桶可以不用设成public，但上传的文件会设成public）                                                                                                              |
+| OSS_DOMAIN                    | 否  | aliyun oss 绑定的域名,只填域名，不要加http://。 2019.9.23后创建的bucket，需要绑定域名，不然无法预览，[绑定方法参考](https://help.aliyun.com/zh/oss/user-guide/map-custom-domain-names-5)                                                                                                     |
+| APP_TITLE                     | 否  | 自定义网站标题，需要获得授权后才会生效                                                                                                                                                                                                                                   |
+| APP_SUB_TITLE                 | 否  | 自定义网站副标题，需要获得授权后才会生效                                                                                                                                                                                                                                  |
+| APP_ICON                      | 否  | 自定义网站浏览器标题icon，填icon图标链接，需要获得授权后才会生效                                                                                                                                                                                                                  |
+| KNOWLEDGE_BASE_URL            | 否  | fastgpt的接口根地址，比如：https://ai.fastgpt.in/api ，需配合自定义模型参 CUSTOM_MODELS                                                                                                                                                                                   |
+| CUSTOM_MODELS                 | 否  | 自定义模型参数，基于原版参数拓展，兼容原版功能。通过自定义模型名称对应fastgpt里的应用，及对应key，格式：+知识库名称==知识库对应apikey，例如：CUSTOM_MODELS=+知识库1==fastgpt-xxxxxx，只会把知识库名称传到前端，apikey不会传到用户端，只会在服务端，可以放心。                                                                                           |
+| INPUT_PLACEHOLDER             | 否  | 自定义输入框提示。                                                                                                                                                                                                                                             |
+| HIDE_VOICE_INPUT              | 否  | 如果需要屏蔽语音输入，则把该参数设成1。                                                                                                                                                                                                                                  |
+| HIDE_GPTS                     | 否  | 如果需要隐藏GPTS，则把该参数设成1。                                                                                                                                                                                                                                  |
+| FILE_UPLOAD_URL               | 否  | 自定义文件上传地址（包括上传按钮和输入框粘贴文件上传，以及画图模型返回的图片），上传时的表单参数名：file，返回的数据格式不限，但需要有文件地址，文件地址需要公网可以访问。填了这个参数，所有文件会优先上传到这个接口，没填则上传配置的OSS。                                                                                                                             |
+| FILE_UPLOAD_KEY               | 否  | 自定义文件上传接口的鉴权key，填了会在headers里增加 Authorization: "Bearer " + key，为了key的安全，填了key后，默认走服务端上传，要浏览器直接上传，则需要设置下面那个参数                                                                                                                                           |
+| FILE_UPLOAD_FROM_BROWSER      | 否  | 自定义文件上传接口填了key后，如果需要在浏览器直接把文件上传到该接口，则需要把这参数值设成：1。设置后，会把鉴权key暴露在浏览器端，有风险，但在文件服务器跟应用不是同一个服务器时，可以节省服务器带宽资源。                                                                                                                                              |
+| ALWAYS_DISPLAY_MODEL          | 否  | 如果需要在模型选择那边常显模型名称，则把该参数设成1。                                                                                                                                                                                                                           |
+| SEND_IMG_URL                  | 否  | vision或claude模型，发送图片时，默认发送base64，如果需要发送url，则把该参数设成1，前提是配置了文件存储功能，且模型那边能识别url并通过url得到图片。发送url可以节省服务器带宽。                                                                                                                                                |
+| DEFAULT_SUMMARIZE_MODEL       | 否  | 总结标题的默认模型，设置后，无论使用哪个模型聊天，都会使用该参数指定的模型进行总结。                                                                                                                                                                                                            |
+| HIDE_USER_API_URL             | 否  | 如果需要隐藏用户自定义接口地址，则把该参数设置为1。                                                                                                                                                                                                                            |
+| USE_CUSTOM_CONFIG             | 否  | 如果需默认启用用户自定义接口地址，则把该参数设置为1。                                                                                                                                                                                                                           |
+| CHAT_GEMINI_THROUGH_OPENAI    | 否  | 如果需让gemini模型走openai接口地址，则把该参数设置为1，前提是接口接收的报文格式要跟openai的一样。                                                                                                                                                                                            |
+| CHAT_CLAUDE_THROUGH_OPENAI    | 否  | 如果需让claude模型走openai接口地址，则把该参数设置为1，前提是接口接收的报文格式要跟openai的一样。                                                                                                                                                                                            |
+| ENABLE_INJECT_SYSTEM_PROMPTS  | 否  | 如果需要关闭注入系统及提示信息，则把该参数设成0，默认是开启的。                                                                                                                                                                                                                      |
+| ZHIPU_API_VERSION             | 否  | 智谱api的版本，比如目前是v4，则填v4，当使用智谱glm-*模型时，会自动api替换版本号。                                                                                                                                                                                                      |
+| PLUGIN_BUTTON_CUSTOM          | 否  | （有后台版本有效）自定义插件按钮，可以配置名称和图标，以及点击超链，格式：PLUGIN_BUTTON_CUSTOM={"text": "自定义", "icon": "https://", "url": "https://"}。                                                                                                                                     |
 
 ### 需要准备什么
 - 1.若干个二级域名，本应用需要一个，另外代理discord，openai，aliyun-oss等，都需要域名
@@ -277,14 +279,14 @@
 ### 无后台版本部署和启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.22
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.23
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.22
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.7.23
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
