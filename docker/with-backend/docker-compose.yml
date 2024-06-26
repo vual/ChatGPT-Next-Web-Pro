@@ -30,6 +30,8 @@ services:
       HIDE_SD_SETTING: 1
       # vision或claude模型，发送图片时，发送图片url，去掉该参数，默认发送base64
       #SEND_IMG_URL: 1
+      # 插件按钮自定义
+      #PLUGIN_BUTTON_CUSTOM: '{"text": "GitHub", "icon": "", "url": "https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web"}'
       # 其它参数请在项目文档里查看说明
     networks:
       - spring_cloud_default
