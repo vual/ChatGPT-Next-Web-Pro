@@ -6,7 +6,7 @@
 ### 推广
     介绍购买付费版得佣金，无后台版本一个￥30，有后台版本一个￥60。
 
-### 欢迎体验[lobe-chat-pro](https://github.com/vual/lobe-chat-pro)
+### 欢迎体验另一个项目[lobe-chat-pro](https://github.com/vual/lobe-chat-pro)
     基于lobe-chat，增加了midjourney绘图功能，地址：https://github.com/vual/lobe-chat-pro
 
 ### 版本
