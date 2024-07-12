@@ -301,6 +301,8 @@ docker run -d -p 3000:3000 \
 ```shell
 wget https://github.com/vual/ChatGPT-Next-Web-Pro/tree/main/docker/with-backend/docker-compose.yml
 ```
+如果下载不了docker-compose.yml，或者下载下来是html文件，则请直接到 /docker/with-backend下查看docker-compose.yml并复制里面的内容，自己创建一个同样名称的yml文件
+
 ##### 2.编辑docker-compose.yml文件，根据需要，修改里面的环境变量
 
 ##### 3.拉取最新镜像，并启动，如果遇到无法执行 docker-compose 命令，则需要先安装 docker-compose
