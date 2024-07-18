@@ -135,10 +135,9 @@
   
 
 ### 后续待实现
-- 【     】1.接入mj-plus。
-- 【     】2.联网搜索。
-- 【     】3.function call。
-- 【     】4.待思考。。。
+- 【     】1.联网搜索。
+- 【     】2.function call。
+- 【     】3.待思考。。。
 
 ### 无后台版本示例图片
 <div style="display: flex;flex-direction: column">
