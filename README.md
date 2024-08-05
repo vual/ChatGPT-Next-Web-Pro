@@ -9,6 +9,8 @@
 ### 欢迎体验另一个项目[lobe-chat-pro](https://github.com/vual/lobe-chat-pro)
     基于lobe-chat，增加了更强大的绘图面板，支持midjourney和dall-e，地址：https://github.com/vual/lobe-chat-pro
 
+### 推荐中转接口，[https://api.aiiai.top](https://api.aiiai.top)，免去繁杂配置，获取key就可以用。
+
 ### 版本
 #### 无后台：
 - 更新日期：2024.08.02
