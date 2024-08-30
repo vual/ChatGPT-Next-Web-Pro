@@ -274,7 +274,9 @@
 | ENABLE_INJECT_SYSTEM_PROMPTS | 否  | 如果需要关闭注入系统及提示信息，则把该参数设成0，默认是开启的。                                                                                                                                                                                                                      |
 | SKIP_MASK_PICK               | 否  | 如果新建聊天需要跳过面具选择，则设成1。                                                                                                                                                                                                                                  |
 | ZHIPU_API_VERSION            | 否  | 智谱api的版本，比如目前是v4，则填v4，当使用智谱glm-*模型时，会自动api替换版本号。                                                                                                                                                                                                      |
-| PLUGIN_BUTTON_CUSTOM         | 否  | （有后台版本有效）自定义插件按钮，可以配置名称和图标，以及点击超链，格式：PLUGIN_BUTTON_CUSTOM={"text": "自定义", "icon": "https://", "url": "https://"}。                                                                                                                                     |
+| PLUGIN_BUTTON_CUSTOM         | 否  | 自定义插件按钮，可以配置名称和图标，以及点击超链，格式：PLUGIN_BUTTON_CUSTOM={"text": "自定义", "icon": "https://", "url": "https://"}。                                                                                                                                              |
+| LUMA_PROXY_URL               | 否  | luma接口地址                                                                                                                                                                                                                                              |
+| LUMA_API_KEY                 | 否  | luma apikey                                                                                                                                                                                                                                           |
 
 ### 需要准备什么
 - 1.若干个二级域名，本应用需要一个，另外代理discord，openai，aliyun-oss等，都需要域名
