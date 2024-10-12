@@ -63,6 +63,8 @@ services:
       #ANNYUN_REDIS_PORT: 6379
       # redis使用的数据库索引，一般不改，如果改了ANNYUN_REDIS_HOST，怕跟别的项目冲突，则改成其它的
       #ANNYUN_REDIS_DATABASE: 9
+      # redis密码，一般不改，如果设置了redis密码，则需要填
+      #ANNYUN_REDIS_PASSWORD:
       # 数据库连接地址，一般不改，如果要连已经存在的mysql，则根据实际情况填IP或容器名称
       #ANNYUN_MYSQL_HOST: annyun-mysql
       # mysql数据库端口，一般不改，如果改了前面那个参数ANNYUN_MYSQL_HOST，且对应的mysql端口不是3306，则改成实际的端口
