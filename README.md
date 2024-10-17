@@ -38,7 +38,7 @@
   - 3.**MINIO**，私有化部署的OSS，免费的，只是会占用自己的带宽。
   - 4.**自定义文件上传接口**，返回的文件地址需要公网可访问，启动时参数：FILE_UPLOAD_URL=，也支持需要鉴权的上传接口，配合参数：FILE_UPLOAD_KEY=
 - **三**. **画图和视频支持**，图片需要有地方存，强烈建议配合OSS或自定义文件上传接口，详见第2点：
-  - 1.**Midjourney**，**midjourney-proxy-plus**，**支持ai换脸、局部重绘、自定义变焦**。该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。2024.10.11增加绘图面板
+  - 1.**Midjourney**，**midjourney-proxy-plus**，**支持ai换脸、局部重绘、自定义变焦**, **独立的绘图面板**。该功能基于[ChatGPT-Midjourney](https://github.com/Licoy/ChatGPT-Midjourney)，使用antd进行了完全的重构，界面更加合理，参数更加全面。
   - 2.**Stable-Diffussion**，**支持lora模型**，**文生图、图生图、后期处理、图片信息**，近乎完整的参数设置，以及图片完成后的功能按钮。
   - 3.**Dall-E-3**，兼容dall-e-2，需要配置文件上传和存储功能，因为openai返回的链接有效期很短，过期就无法访问。
   - 4.增加了**绘画记录**页面，方便查看所有绘图记录。
