@@ -13,16 +13,16 @@
 
 ### 版本
 #### 无后台：
-- 更新日期：2024.10.11
+- 更新日期：2024.10.18
 - 版本号：
-  - 3.9.0，完整功能，需要授权码
+  - 3.9.1，完整功能，需要授权码
   - 3.7.21-arm，arm64版，完整功能，需要授权码
   - 3.7.27-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
 - **Demo演示地址**：
   - 参考下面有后台版本的用户端，有一些界面和功能差异，没有登录、套餐列表、用户中心，没有管理端。
 
 #### 有后台版本：
-- 更新日期：2024.10.11
+- 更新日期：2024.10.18
 - 版本号：
   - latest
 - **Demo演示地址**：
@@ -31,7 +31,7 @@
 
 
 ### 特性（无后台版本）：
-- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.10.11
+- **一**. 完整的[ChatGPT-Next-Web](https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web)功能，并保持同步更新。最近同步时间：2024.10.18
 - **二**. **文件上传和存储**，接入OSS，也支持自定义文件上传接口，配置详见参数说明，**强烈建议配置该功能，可以让下面很多功能更好用**，以下任选一种即可：
   - 1.**阿里云OSS**，国外那些服务有可能访问不了国内的OSS，建议国内和国际版都测试下。
   - 2.**腾讯云COS**，同上，也是OSS。
@@ -289,21 +289,33 @@
 - 4.部署[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)，详细请到对应项目查看。、
 - 5.**如果你不想配置上面的那些代理，可以考虑买中转接口的key，推荐中转[api.aiiai.top](https://api.aiiai.top/register?aff=B4fi)**。
 - 6.获取阿里云oss的endpoint，key等，[详细参考](https://zhuanlan.zhihu.com/p/445967642) ，bucket可以不用设为公共读，但上传的图片会自动设成公共读。2019.9.23后创建的bucket，需要绑定自己的域名，才能预览，[绑定方法参考](https://help.aliyun.com/zh/oss/user-guide/map-custom-domain-names-5) 。[跨域问题](https://help.aliyun.com/zh/oss/the-no-access-control-allow-origin-error-message-is-still-reported-when-you-call-oss-after-setting-cross-domain-rules)
-- 7.部署minio私有化oss，bucket必须要设成public，[docker启动参考官方文档](https://www.minio.org.cn/docs/minio/container/operations/install-deploy-manage/deploy-minio-single-node-single-drive.html)。
+- 7.部署minio私有化oss，bucket必须要设成public，启动命令如下，或参考[docker启动参考官方文档](https://www.minio.org.cn/docs/minio/container/operations/install-deploy-manage/deploy-minio-single-node-single-drive.html)。
+  ```shell
+  mkdir -p /home/minio/data
+
+  docker run \
+  -p 9000:9000 \
+  -p 9001:9001 \
+  --name minio \
+  -v /home/minio/data:/data \
+  -e "MINIO_ROOT_USER=admin" \
+  -e "MINIO_ROOT_PASSWORD=12345678" \
+  quay.io/minio/minio server /data --console-address ":9001"
+  ```
 - 8.使用stable-diffusion功能需要启动[stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)，详细启动方式请到对应项目查看：https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API
 - 9.腾讯云oss跨域问题，[可以参考](https://cloud.tencent.com/document/product/436/13318)
 
 ### 无后台版本部署和启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.0
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.1
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.0
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.1
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
