@@ -9,7 +9,7 @@
 ### 欢迎体验另一个项目[lobe-chat-pro](https://github.com/vual/lobe-chat-pro)
     基于lobe-chat，增加了更强大的绘图面板，支持midjourney和dall-e，地址：https://github.com/vual/lobe-chat-pro
 
-### 推荐中转接口，[api.aiiai.top](https://api.aiiai.top/register?aff=B4fi)，免去繁杂配置，获取key就可以用。
+### 推荐中转接口，[ai.aiiai.top](https://ai.aiiai.top)，免去繁杂配置，获取key就可以用。
 
 ### 版本
 #### 无后台：
@@ -43,7 +43,7 @@
   - 3.**Dall-E-3**，兼容dall-e-2，需要配置文件上传和存储功能，因为openai返回的链接有效期很短，过期就无法访问。
   - 4.增加了**绘画记录**页面，方便查看所有绘图记录。
   - 5.**增加suno支持**，需要是chat格式的接口，会自动提取播放连接渲染成播放控件。
-  - 6.**增加luma支持**，走luma的接口格式，详见[api.aiiai.top](https://api.aiiai.top/register?aff=B4fi)
+  - 6.**增加luma支持**，走luma的接口格式，详见[ai.aiiai.top](https://ai.aiiai.top)
 - **四**. **多模态支持**，强烈建议配置第二点说的文件上传功能：
   - 1.**gpt-4-vision-preview**，**gpt-4o**，发送出去默认是发送原图base64，如果没配置文件存储功能，则会压缩到100k以内再保存到浏览器本地存储。
   - 2.**Dall-E-3**，兼容dall-e-2，需要配置文件上传和存储功能，因为openai返回的链接有效期很短，过期就无法访问。
@@ -287,7 +287,7 @@
 - 2.部署[openai代理](https://github.com/vual/vercel-proxy-openai)，fork到自己仓库，然后使用vercel进行部署，绑定自己的域名。如果能直通chatgpt，则不需要配置。
 - 3.部署discord代理，项目地址[discord-proxy](https://github.com/vual/discord-proxy)，fork到自己仓库，然后使用vercel进行部署，绑定自己的域名。如果能直通discord，则不需要。
 - 4.部署[midjourney-proxy](https://github.com/novicezk/midjourney-proxy)，详细请到对应项目查看。、
-- 5.**如果你不想配置上面的那些代理，可以考虑买中转接口的key，推荐中转[api.aiiai.top](https://api.aiiai.top/register?aff=B4fi)**。
+- 5.**如果你不想配置上面的那些代理，可以考虑买中转接口的key，推荐中转[ai.aiiai.top](https://ai.aiiai.top)**。
 - 6.获取阿里云oss的endpoint，key等，[详细参考](https://zhuanlan.zhihu.com/p/445967642) ，bucket可以不用设为公共读，但上传的图片会自动设成公共读。2019.9.23后创建的bucket，需要绑定自己的域名，才能预览，[绑定方法参考](https://help.aliyun.com/zh/oss/user-guide/map-custom-domain-names-5) 。[跨域问题](https://help.aliyun.com/zh/oss/the-no-access-control-allow-origin-error-message-is-still-reported-when-you-call-oss-after-setting-cross-domain-rules)
 - 7.部署minio私有化oss，bucket必须要设成public，启动命令如下，或参考[docker启动参考官方文档](https://www.minio.org.cn/docs/minio/container/operations/install-deploy-manage/deploy-minio-single-node-single-drive.html)。
   ```shell
