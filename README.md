@@ -7,7 +7,7 @@
     介绍购买付费版得佣金，无后台版本一个￥30，有后台版本一个￥60。
 
 ### 欢迎体验另一个项目[lobe-chat-pro](https://github.com/vual/lobe-chat-pro)
-    基于lobe-chat，增加了更强大的绘图面板，支持midjourney和dall-e，地址：https://github.com/vual/lobe-chat-pro
+    基于lobe-chat，增加了更强大的绘图、音乐、视频面板，支持midjourney、dall-e、suno、luma、runway等，地址：https://github.com/vual/lobe-chat-pro
 
 ### 推荐中转接口，[ai.aiiai.top](https://ai.aiiai.top)，免去繁杂配置，获取key就可以用。
 
@@ -331,7 +331,7 @@ docker run -d -p 3000:3000 \
 ### 有后台版本部署和启动
 ##### 1.下载docker-compose.yml文件，文件在本项目 /docker/with-backend/目录下
 ```shell
-wget https://github.com/vual/ChatGPT-Next-Web-Pro/tree/main/docker/with-backend/docker-compose.yml
+curl -o docker-compose.yml https://github.com/vual/ChatGPT-Next-Web-Pro/tree/main/docker/with-backend/docker-compose.yml
 ```
 如果下载不了docker-compose.yml，或者下载下来是html文件，则请直接到 /docker/with-backend下查看docker-compose.yml并复制里面的内容，自己创建一个同样名称的yml文件
 
