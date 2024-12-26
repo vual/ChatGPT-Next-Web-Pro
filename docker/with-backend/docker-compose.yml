@@ -182,6 +182,22 @@ services:
       - /data/annyun/redis/redis.conf:/usr/local/etc/redis/redis.conf
     networks:
       - spring_cloud_default
+  # llm
+  annyun-llm:
+    container_name: annyun-llm
+    image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-llm:latest
+    restart: always
+    ports:
+      - 8000:8000
+    environment:
+      # 如果需要识别图片转成文字描述，目前支持qwen-vl-max，openai的模型请自测
+      API_KEY: your_api_key_here
+      BASE_URL: https://api.annyun.cn/v1
+      MODEL: qwen-vl-max
+      PROMPT: 提取图片中全部的文本，不需要任何推理和总结，只需要原文
+      FILE_DELETE_DELAY: 300
+    networks:
+      - spring_cloud_default
 
 networks:
   spring_cloud_default:
