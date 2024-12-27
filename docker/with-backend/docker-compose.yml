@@ -4,7 +4,7 @@ services:
   annyun-chat-web:
     container_name: annyun-chat-web
     image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-chat-web:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 3000:3000 # 映射端口，如果3000被占用了，则可以改成其它的，比如3003:3000，只能改前面的前面那个，后面的3000是容器内部的，不能改
     environment:
@@ -39,7 +39,7 @@ services:
   annyun-admin-web:
     container_name: annyun-admin-web
     image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-admin-web:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 8888:80 # 映射端口，如果8888被占用了，则可以改成其它的，比如8899:80，只能改前面的前面那个，后面的80是容器内部的，不能改
     environment:
@@ -50,7 +50,7 @@ services:
   annyun-admin:
     container_name: annyun-admin
     image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-admin:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 9999:9999 # 映射端口，如果9999被占用了，则可以改成其它的，比如9988:9999，只能改前面的前面那个，后面的9999是容器内部的，不能改
     environment:
@@ -156,7 +156,7 @@ services:
   annyun-mysql:
     container_name: annyun-mysql
     image: docker.m.daocloud.io/mysql:8.0.36
-    restart: always
+    restart: unless-stopped
     ports:
       - 3306:3306 # 映射端口，如果3306被占用了，则可以改成其它的，比如3307:3306，只能改前面的前面那个，后面的3306是容器内部的，不能改
     environment:
@@ -173,7 +173,7 @@ services:
     container_name: annyun-redis
     hostname: annyun-redis
     image: docker.m.daocloud.io/redis:7.2.4
-    restart: always
+    restart: unless-stopped
     ports:
       - 6379:6379 # 映射端口，如果6379被占用了，则可以改成其它的，比如6380:6379，只能改前面的前面那个，后面的6379是容器内部的，不能改
     volumes:
@@ -186,7 +186,7 @@ services:
   annyun-llm:
     container_name: annyun-llm
     image: registry.cn-hangzhou.aliyuncs.com/ann-chat/annyun-llm:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - 8000:8000
     environment:
