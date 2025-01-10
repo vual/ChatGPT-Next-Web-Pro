@@ -1,4 +1,3 @@
-version: "3"
 services:
   # 用户聊天的web服务
   annyun-chat-web:
@@ -145,6 +144,18 @@ services:
       # 易支付配置，支付设备，默认pc，有些易支付平台需要传jump，才会返回支付链接，
       #EASY_PAY_DEVICE: pc
       #----------易支付配置----------
+      #----------虎皮椒支付配置----------
+      # 虎皮椒微信配置
+      #HPJ_PAY_WX_APP_ID:
+      #HPJ_PAY_WX_APP_SECRET:
+      #HPJ_PAY_WX_API_URL: https://api.xunhupay.com/payment/do.html
+      # 虎皮椒支付宝配置
+      #HPJ_PAY_ZFB_APP_ID:
+      #HPJ_PAY_ZFB_APP_SECRET:
+      #HPJ_PAY_ZFB_API_URL: https://api.dpweixin.com/payment/do.html
+      # 虎皮椒支付，回调通知地址，即后端管理的地址，比如：https://admin.annyun.cn
+      #HPJ_PAY_NOTIFY_URL:
+      #----------虎皮椒支付配置----------
       #----------其它配置----------
       # 如果需要禁用注册，则设成 true，配合annyun-chat-web里的DISABLE_LOGIN_TAB=2一起使用
       #ANNYUN_DISABLE_REGISTER: false
@@ -190,7 +201,7 @@ services:
     ports:
       - 8000:8000
     environment:
-      # 如果需要识别图片转成文字描述，目前支持qwen-vl-max，openai的模型请自测
+      # 以下配置可以不填写，不影响文本内容提取，如果需要识别图片转成文字描述，则填写，目前支持qwen-vl-max，openai的模型请自测
       API_KEY: your_api_key_here
       BASE_URL: https://api.annyun.cn/v1
       MODEL: qwen-vl-max

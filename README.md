@@ -3,9 +3,6 @@
     人格保证，所有版本没有任何恶意代码，不会偷key或者泄露key！！！
     如果担心，可自行在部署应用的服务器上安装抓包工具，分析每个对外的请求。
 
-### 推广
-    介绍购买付费版得佣金，无后台版本一个￥30，有后台版本一个￥60。
-
 ### 欢迎体验另一个项目[lobe-chat-pro](https://github.com/vual/lobe-chat-pro)
     基于lobe-chat，增加了更强大的绘图、音乐、视频面板，支持midjourney、dall-e、suno、luma、runway、快手可灵等，地址：https://github.com/vual/lobe-chat-pro
 
@@ -13,16 +10,16 @@
 
 ### 版本
 #### 无后台：
-- 更新日期：2024.12.26
+- 更新日期：2025.01.10
 - 版本号：
-  - 3.9.5，完整功能，需要授权码
+  - 3.9.6，完整功能，需要授权码
   - 3.7.21-arm，arm64版，完整功能，需要授权码
   - 3.7.27-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
 - **Demo演示地址**：
   - 参考下面有后台版本的用户端，有一些界面和功能差异，没有登录、套餐列表、用户中心，没有管理端。
 
 #### 有后台版本：
-- 更新日期：2024.12.26
+- 更新日期：2025.01.10
 - 版本号：
   - latest
 - **Demo演示地址**：
@@ -74,6 +71,7 @@
 |          | 会话消息                                                                                           | × | × | ✓ |
 | 支付方式     | 微信支付                                                                                           | × | × | ✓ |
 |          | 易支付                                                                                            | × | × | ✓ |
+|          | 虎皮椒支付                                                                                          | × | × | ✓ |
 
 ### 特性（无后台版本）：[详细说明](./docs/无后台版本详细功能说明.md)
 
@@ -155,14 +153,14 @@
 ### 无后台版本部署和启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.5
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.6
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.5
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.6
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
