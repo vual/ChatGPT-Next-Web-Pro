@@ -6,6 +6,7 @@
 ### 欢迎体验另一个项目[lobe-chat-pro](https://github.com/vual/lobe-chat-pro)
     基于lobe-chat，增加了更强大的绘图、音乐、视频面板，支持midjourney、dall-e、suno、luma、runway、快手可灵等，地址：https://github.com/vual/lobe-chat-pro
 
+### 基于new-api的开源项目[aiiai-api](https://github.com/vual/aiiai-api)
 ### 推荐中转接口，[ai.aiiai.top](https://ai.aiiai.top)，免去繁杂配置，获取key就可以用。
 
 ### 版本
