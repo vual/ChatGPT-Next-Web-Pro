@@ -32,6 +32,9 @@ services:
       # 插件按钮自定义
       #PLUGIN_BUTTON_CUSTOM: '{"text": "GitHub", "icon": "", "url": "https://github.com/ChatGPTNextWeb/ChatGPT-Next-Web"}'
       # 其它参数请在项目文档里查看说明
+      #APP_TITLE: 网站名称
+      #APP_SUB_TITLE: 网站子标题
+      #APP_ICON: https://xxxxxxx
     networks:
       - spring_cloud_default
   # 后台管理的web服务
