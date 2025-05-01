@@ -11,7 +11,7 @@
 
 ### 版本
 #### 无后台：
-- 更新日期：2025.04.16
+- 更新日期：2025.05.01
 - 版本号：
   - 3.9.12，完整功能，需要授权码
   - 3.7.21-arm，arm64版，完整功能，需要授权码
@@ -20,7 +20,7 @@
   - 参考下面有后台版本的用户端，有一些界面和功能差异，没有登录、套餐列表、用户中心，没有管理端。
 
 #### 有后台版本：
-- 更新日期：2025.04.16
+- 更新日期：2025.05.01
 - 版本号：
   - latest
 - **Demo演示地址**：
@@ -42,6 +42,7 @@
 |          | midjourney独立绘图面板                                                                               | ×          | ✓         | ✓ |
 |          | Stable-Diffussion(sd-webui接口)                                                                  | ✓          | ✓         | ✓ |
 |          | Dall-E-3（以及走openai画图接口的其他模型）                                                                   | ✓          | ✓         | ✓ |
+|          | gpt-image-1（支持重绘）                                                                              | ×          | ✓         | ✓ |
 |          | 绘图记录                                                                                           | ✓          | ✓         | ✓ |
 | 音乐       | suno(chat格式)                                                                                   | ✓          | ✓         | ✓ |
 | 视频       | luma                                                                                           | ×          | ✓         | ✓ |
@@ -106,6 +107,10 @@
   </div>
   <div style="display: flex;flex-direction: row">
     <img src="./images/img14.png" width="49%">
+    <img src="./images/img15.png" width="49%">
+  </div>
+<div style="display: flex;flex-direction: row">
+    <img src="./images/img16.png" width="49%">
   </div>
 </div>
 
@@ -154,14 +159,14 @@
 ### 无后台版本部署和启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.12
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.13
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.12
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.13
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
