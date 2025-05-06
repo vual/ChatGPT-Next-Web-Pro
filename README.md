@@ -11,9 +11,9 @@
 
 ### 版本
 #### 无后台：
-- 更新日期：2025.05.01
+- 更新日期：2025.05.06
 - 版本号：
-  - 3.9.12，完整功能，需要授权码
+  - 3.9.14，完整功能，需要授权码
   - 3.7.21-arm，arm64版，完整功能，需要授权码
   - 3.7.27-ce，社区版(免费版)，不需要授权码，功能有限制，详细看后面说明
 - **Demo演示地址**：
@@ -159,14 +159,14 @@
 ### 无后台版本部署和启动
 ##### 1.拉取镜像
 ```shell
-docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.13
+docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.14
 ```
 ##### 2.启动应用
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
   -e AUTHORIZE_CODE="授权码" \
-  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.13
+  registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.14
 ```
 - 3000:3000是端口映射，前面的可以自定义，后面的是容器内部端口，不可更改。比如可以改成：3030:3000, 3080:3000
 - 如果你有chatgpt中转地址，则加上 -e BASE_URL="https://xxxxxx" \  ，没加这个参数，默认请求到 https://api.openai.com
