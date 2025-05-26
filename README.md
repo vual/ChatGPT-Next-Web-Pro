@@ -20,7 +20,7 @@
   - 参考下面有后台版本的用户端，有一些界面和功能差异，没有登录、套餐列表、用户中心，没有管理端。
 
 #### 有后台版本：
-- 更新日期：2025.05.01
+- 更新日期：2025.05.26
 - 版本号：
   - latest
 - **Demo演示地址**：
@@ -136,7 +136,7 @@
   </div>
   <div style="display: flex;flex-direction: row">
     <img src="./images/backend/img9.png" width="49%">
-    <img src="./images/backend/img10.png" width="49%">
+    <img src="./images/backend/img17.png" width="49%">
   </div>
   <div style="display: flex;flex-direction: row">
     <img src="./images/backend/img11.png" width="49%">
