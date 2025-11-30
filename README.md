@@ -7,19 +7,20 @@
     基于lobe-chat，增加了更强大的绘图、音乐、视频面板，支持midjourney、dall-e、suno、luma、runway、快手可灵等，地址：https://github.com/vual/lobe-chat-pro
 
 ### 基于new-api的开源项目[aiiai-api](https://github.com/vual/aiiai-api)
-### 推荐中转接口，[api.annyun.cn](https://api.annyun.cn/)，免去繁杂配置，获取key就可以用。
+### 推荐中转接口1，[api.annyun.cn](https://api.annyun.cn/)，免去繁杂配置，获取 key 就可以用。
+### 推荐中转接口2，[api.annyun.top](https://api.aiiai.top/register?aff=B4fi)，免去繁杂配置，获取 key 就可以用。
 
 ### 版本
 #### 无后台：
-- 更新日期：2025.09.01
+- 更新日期：2025.12.01
 - 版本号：
-  - 3.9.17，完整功能，需要授权码
+  - 3.9.18，完整功能，需要授权码
   - 3.8.7，免费版，不需要授权码
 - **Demo演示地址**：
   - 参考下面有后台版本的用户端，有一些界面和功能差异，没有登录、套餐列表、用户中心，没有管理端。
 
 #### 有后台版本：
-- 更新日期：2025.09.01
+- 更新日期：2025.12.01
 - 版本号：
   - latest
 - **Demo演示地址**：
