@@ -27,8 +27,8 @@
 - 更新日期：2025.12.01
 - 版本号：latest
 - Demo 演示：
-  - 用户端：https://ai.annyun.cn/（支持公众号扫码授权登录、邮箱注册；手机号登录演示站未配置）
-  - 管理端：https://admin.annyun.cn/（账号：`annyun`，密码：`123456`）
+  - 用户端：[https://nextweb.annyun.cn](https://nextweb.annyun.cn)，（支持公众号扫码授权登录、邮箱注册；手机号登录演示站未配置）
+  - 管理端：[https://nextadmin.annyun.cn](https://nextadmin.annyun.cn),（账号：`annyun`，密码：`123456`）
 
 ## 特性概览
 | 类别 | 特性 | 无后台（3.8.*） | 无后台（3.9+） | 有后台 |
