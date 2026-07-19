@@ -1,0 +1,107 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  background-color: azure;
+
+  .auth-logo {
+    transform: scale(1.4);
+  }
+
+  .auth-title {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 2;
+  }
+
+  .auth-tips {
+    font-size: 14px;
+  }
+
+  .login-tabs {
+    margin-top: 3vh;
+  }
+
+  .login-by-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .auth-input {
+    margin: 3vh 0;
+  }
+
+  .auth-actions {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    button:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .login-account {
+    max-width: 100%;
+  }
+
+  .login-password {
+    margin-top: 1.5vh;
+    max-width: 100%;
+  }
+
+  .action-button {
+    width: 200px;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .login-button {
+    margin-top: 3vh;
+    width: 80px;
+  }
+
+  .register-button {
+    width: 80px;
+    background-color: aliceblue;
+  }
+
+  .verifycode {
+    margin-top: 1.5vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .verifycode-input {
+    max-width: 30%;
+  }
+
+  .verifycode img {
+    margin-left: 4%;
+    max-width: 30%;
+    border-radius: 10px;
+  }
+
+  .login-by-wechat {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .login-by-wechat p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .github-icon {
+    margin-top: 5vh;
+  }
+}

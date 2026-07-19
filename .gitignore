@@ -45,5 +45,11 @@ dev
 *.key
 *.key.pub
 
+masks.json
+
+# mcp config
+app/mcp/mcp_config.json
+
 package-lock.json
 *.log
+data.json

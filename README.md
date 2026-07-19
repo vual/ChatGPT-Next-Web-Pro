@@ -15,11 +15,8 @@
 - [`api.annyun.cn`](https://api.annyun.cn/)（免配置，拿 key 即可用）
 
 ## 版本
-### 无后台
-- 更新日期：2025.12.01
-- 版本号：
-  - 3.9.18（完整功能，需授权码）
-  - 3.8.7（免费版，无需授权码）
+### 无后台（开源代码）
+- 更新日期：2026.07.19
 - Demo 演示：参考下方「有后台版本」的用户端说明。该版本与有后台版本在界面与功能上存在差异：无登录、无套餐列表、无用户中心、无管理端。
 
 ### 有后台
@@ -175,7 +172,6 @@ docker pull registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.
 ```shell
 docker run -d -p 3000:3000 \
   -e OPENAI_API_KEY="sk-xxxxxx" \
-  -e AUTHORIZE_CODE="授权码" \
   registry.cn-hangzhou.aliyuncs.com/ann-chat/chatgpt-next-web-pro:3.9.18
 ```
 - `3000:3000` 为端口映射，左侧可自定义，右侧为容器内部端口（不可更改），例如：`3030:3000`、`3080:3000`。

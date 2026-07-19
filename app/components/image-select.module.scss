@@ -1,0 +1,16 @@
+.image-list {
+  display: flex;
+  padding: 1px;
+}
+
+.image-list > div {
+  margin: 5px 5px 5px 5px;
+}
+
+.image-list > div > img {
+  padding: 1px 1px 1px 1px;
+}
+
+.image-selected {
+  border: 2px solid dodgerblue;
+}
